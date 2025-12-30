@@ -272,6 +272,14 @@
   .parallax {
     will-change: transform;
   }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .animate-slideUp {
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
 }
 
 /* Custom scrollbar - minimal */

@@ -11,20 +11,20 @@ const teamMembers = [
     initials: 'LX',
   },
   {
-    name: 'Yu Tong',
+    name: 'Dr. Yutong Zhao',
     role: 'Research Team Member',
-    affiliation: 'Stevens Institute of Technology',
+    affiliation: 'California State University Long Beach',
     department: 'Software Engineering',
     bio: 'Contributing to ROI analysis methodology and course material development.',
-    initials: 'YT',
+    initials: 'YZ',
   },
   {
-    name: 'Haowei Chen',
+    name: 'Dr. Chenhao Wei',
     role: 'Research Team Member',
     affiliation: 'Stevens Institute of Technology',
     department: 'Software Engineering',
     bio: 'Supporting the development and deployment of educational materials and tools.',
-    initials: 'HC',
+    initials: 'CW',
   },
 ]
 
@@ -44,8 +44,8 @@ export default function Team() {
             Research Team
           </h1>
           <p className="text-[var(--color-ink-light)] max-w-2xl">
-            Faculty and researchers at Stevens Institute of Technology working on 
-            integrating software performance education across the CS curriculum.
+            Faculty and researchers working on integrating software performance 
+            education across the CS curriculum.
           </p>
         </div>
       </section>

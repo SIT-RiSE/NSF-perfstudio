@@ -30,18 +30,23 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/courses/533" className="text-sm text-[var(--color-cream)]/80 hover:text-[var(--color-cream)] transition-colors">
-                  SSW 533 — ROI Analysis
-                </Link>
-              </li>
-              <li>
                 <span className="text-sm text-[var(--color-cream)]/40">
-                  SSW 325 — Coming Soon
+                  SSW 315 — SPE Basics
                 </span>
               </li>
               <li>
                 <span className="text-sm text-[var(--color-cream)]/40">
-                  SSW 345 — Coming Soon
+                  SSW 345 — Modeling & Analysis
+                </span>
+              </li>
+              <li>
+                <Link to="/courses/533" className="text-sm text-[var(--color-cream)]/80 hover:text-[var(--color-cream)] transition-colors">
+                  SSW 533 — Data Collection
+                </Link>
+              </li>
+              <li>
+                <span className="text-sm text-[var(--color-cream)]/40">
+                  SSW 567 — Performance Testing
                 </span>
               </li>
             </ul>
@@ -78,7 +83,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-sm text-[var(--color-cream)]/80 hover:text-[var(--color-cream)] transition-colors inline-flex items-center gap-1"
                 >
-                  Stevens Institute
+                  Stevens Institute of Technology
                   <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>

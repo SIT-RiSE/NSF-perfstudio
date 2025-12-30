@@ -1,96 +1,248 @@
 import { Link } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
 
+// PerfStudio Course Units mapping based on proposal
 const courses = [
   {
-    id: '533',
-    code: 'SSW 533',
-    title: 'Software Metrics',
-    focus: 'ROI Analysis for Performance Issues',
-    description: 'Students analyze real Apache Avro issue tickets to understand performance problems, profiling data interpretation, and cost-benefit analysis of fixes.',
-    materials: ['Guest Lecture Slides', '10 ROI Analysis Batches (50 tickets)', 'Activity Templates', 'Exit Survey'],
-    status: 'active',
-  },
-  {
-    id: '325',
-    code: 'SSW 325',
-    title: 'Object-Oriented Software Engineering',
-    focus: 'Performance in Design Patterns',
-    description: 'Integrating performance awareness into software design decisions and architectural patterns.',
-    materials: [],
+    id: '315',
+    code: 'SSW 315',
+    title: 'Object-Oriented Programming',
+    year: 'Junior • Fall',
+    unit: 'Unit 1: SPE Basics',
+    topics: 'SPE terminologies and methodologies',
+    outcomes: 'Understand basic SPE definition and concepts; Understand common performance strategies and limitations',
+    pblActivity: 'COVID Vaccine Scheduling: performance requirement analysis',
     status: 'coming',
+    color: '#6b5b95',
   },
   {
     id: '345',
     code: 'SSW 345',
-    title: 'Software Testing & Quality Assurance',
-    focus: 'Performance Testing Methods',
-    description: 'Performance testing methodologies, benchmarking, and quality metrics for software systems.',
-    materials: [],
+    title: 'Model-Based Software Engineering',
+    year: 'Junior • Spring',
+    unit: 'Units 2-3: Performance Modeling & Bottleneck Analysis',
+    topics: 'NodeJS architecture, Execution Graph, Performance Metrics, Basic Queueing Theory',
+    outcomes: 'Apply Software Execution Models; Understand system performance metrics; Identify bottleneck resources',
+    pblActivity: 'COVID Vaccine Scheduling: performance modeling, design analysis, bottleneck analysis',
     status: 'coming',
+    color: '#2e8b57',
   },
   {
-    id: '560',
-    code: 'SSW 560',
-    title: 'Advanced Software Engineering',
-    focus: 'Scalability & Optimization',
-    description: 'Advanced performance optimization techniques and scalability patterns for enterprise systems.',
-    materials: [],
+    id: '533',
+    code: 'SSW 533',
+    title: 'Software Estimation & Measurement',
+    year: 'Senior • Fall',
+    unit: 'Unit 4: Performance Data Collection',
+    topics: 'Basic statistics, data analytics, hypothesis testing',
+    outcomes: 'Apply techniques and tools for SPE data collection; Interpret profiling and benchmark data',
+    pblActivity: 'ROI Analysis of Apache Avro performance issues',
+    status: 'active',
+    color: '#c73e1d',
+  },
+  {
+    id: '567',
+    code: 'SSW 567',
+    title: 'Software Testing',
+    year: 'Senior • Spring',
+    unit: 'Unit 5: Performance Testing',
+    topics: 'Performance testing plan, resource usage measurement, response time measurement',
+    outcomes: 'Understand performance test cases with workload specifications; Apply tools to measure performance',
+    pblActivity: 'Crowdsourced Performance Testing Games with JMeter',
     status: 'coming',
+    color: '#326891',
   },
 ]
 
-const researchObjectives = [
-  {
-    title: 'Integration of Performance Concepts',
-    description: 'Weave performance engineering knowledge throughout the undergraduate and graduate CS curriculum, from introductory to advanced courses.',
-  },
-  {
-    title: 'Real-World Case Studies',
-    description: 'Use actual issue tickets from open-source projects (Apache Avro) to teach students how engineers identify and fix performance problems in production.',
-  },
-  {
-    title: 'ROI Analysis Framework',
-    description: 'Develop structured methods for students to evaluate performance improvements against developer effort, learning to make informed trade-off decisions.',
-  },
-  {
-    title: 'Assessment & Iteration',
-    description: 'Measure learning outcomes through surveys and assignments, continuously refining educational materials based on student feedback.',
-  },
+
+const roiSteps = [
+  { step: 1, title: 'Performance Problem', description: 'Identify and summarize the performance issue', example: '"BinaryDecoder.readString() allocates 3x unnecessary byte arrays"' },
+  { step: 2, title: 'Profiling Data', description: 'Extract metrics from the issue report', example: 'Before: 450ms, After: 120ms (73% improvement)' },
+  { step: 3, title: 'Metrics Analysis', description: 'Understand measurement methodology', example: 'JMH benchmark, 1M iterations, p99 latency' },
+  { step: 4, title: 'Developer Effort', description: 'Estimate implementation complexity', example: '~8 hours: refactor core decoder class' },
+  { step: 5, title: 'Trade-off Evaluation', description: 'Consider quality attribute impacts', example: 'Readability ↓ slightly, Performance ↑↑, Memory ↑' },
 ]
+
+// Animated counter hook
+function useAnimatedCounter(end: number, duration: number = 2000, startAnimation: boolean = false) {
+  const [count, setCount] = useState(0)
+  
+  useEffect(() => {
+    if (!startAnimation) return
+    
+    let startTime: number | null = null
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime
+      const progress = Math.min((currentTime - startTime) / duration, 1)
+      setCount(Math.floor(progress * end))
+      if (progress < 1) {
+        requestAnimationFrame(animate)
+      }
+    }
+    requestAnimationFrame(animate)
+  }, [end, duration, startAnimation])
+  
+  return count
+}
+
+// Scroll reveal hook
+function useScrollReveal() {
+  const ref = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.unobserve(entry.target)
+        }
+      },
+      { threshold: 0.2 }
+    )
+    
+    if (ref.current) observer.observe(ref.current)
+    return () => { if (ref.current) observer.unobserve(ref.current) }
+  }, [])
+  
+  return { ref, isVisible }
+}
+
+// Smooth scroll function
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId)
+  if (element) {
+    const offset = 130 // Account for sticky nav
+    const elementPosition = element.getBoundingClientRect().top
+    const offsetPosition = elementPosition + window.pageYOffset - offset
+    window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
+  }
+}
 
 export default function Home() {
+  const [activeStep, setActiveStep] = useState(0)
+  const [activeSection, setActiveSection] = useState('')
+  const statsReveal = useScrollReveal()
+  
+  const courseCount = useAnimatedCounter(4, 1000, statsReveal.isVisible)
+
+  // Track active section for nav highlighting
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['objectives', 'methodology', 'courses', 'outcomes']
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          if (rect.top <= 200 && rect.bottom >= 200) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Auto-cycle through ROI steps
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % roiSteps.length)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <div className="min-h-screen">
-      {/* Header - Simple, Academic Style */}
-      <section className="py-12 border-b border-[var(--color-border)]">
+      {/* Header - PerfStudio Branding */}
+      <section className="py-16 border-b border-[var(--color-border)]">
         <div className="container-wide">
-          <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-accent-primary)] mb-3">
-            NSF-Funded Research Project
-          </p>
-          <h1 className="font-[var(--font-headline)] text-3xl md:text-4xl text-[var(--color-ink)] mb-4">
-            Integrating Software Performance Education Across the CS Curriculum
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-xs uppercase tracking-[0.2em] text-[var(--color-accent-primary)]">
+              NSF IUSE: EHR Project
+            </span>
+            <span className="text-[var(--color-border)]">•</span>
+            <span className="text-xs text-[var(--color-ink-muted)]">Stevens Institute of Technology</span>
+          </div>
+          
+          <h1 className="font-[var(--font-headline)] text-4xl md:text-5xl lg:text-6xl text-[var(--color-ink)] mb-2 leading-tight">
+            PerfStudio
           </h1>
-          <p className="text-lg text-[var(--color-ink-light)] max-w-3xl">
-            A research initiative developing educational materials that teach students 
-            to analyze, measure, and optimize software performance using real-world 
-            case studies from open-source projects.
+          <p className="text-xl md:text-2xl text-[var(--color-ink-light)] max-w-3xl mb-6">
+            Problem-Based Learning for{' '}
+            <span className="text-[var(--color-accent-primary)] font-medium">Software Performance Engineering</span>{' '}
+            Education in Undergraduate Curricula
           </p>
+          <p className="text-[var(--color-ink-muted)] max-w-2xl mb-8">
+            Developing and evaluating curricular units that integrate SPE concepts across 
+            Software Engineering, Computer Science, and Systems Engineering programs through 
+            authentic industry problems and hands-on learning activities.
+          </p>
+          
+          {/* Quick Stats */}
+          <div ref={statsReveal.ref} className="grid grid-cols-2 md:grid-cols-5 gap-6 pt-8 border-t border-[var(--color-border)]">
+            <div className="text-center md:text-left">
+              <div className="font-[var(--font-headline)] text-3xl text-[var(--color-accent-purple)]">
+                5
+              </div>
+              <div className="text-xs text-[var(--color-ink-muted)]">SPE Units</div>
+            </div>
+            <div className="text-center md:text-left">
+              <div className="font-[var(--font-headline)] text-3xl text-[var(--color-accent-primary)]">
+                {courseCount}
+              </div>
+              <div className="text-xs text-[var(--color-ink-muted)]">Courses Integrated</div>
+            </div>
+            <div className="text-center md:text-left">
+              <div className="font-[var(--font-headline)] text-3xl text-[var(--color-accent-coral)]">
+                360+
+              </div>
+              <div className="text-xs text-[var(--color-ink-muted)]">Student Participants</div>
+            </div>
+            <div className="text-center md:text-left">
+              <div className="font-[var(--font-headline)] text-3xl text-[var(--color-accent-teal)]">
+                3+
+              </div>
+              <div className="text-xs text-[var(--color-ink-muted)]">Open Source Projects</div>
+            </div>
+            <div className="text-center md:text-left">
+              <div className="font-[var(--font-headline)] text-3xl text-[var(--color-accent-warm)]">
+                3
+              </div>
+              <div className="text-xs text-[var(--color-ink-muted)]">Year Duration</div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Quick Navigation */}
-      <section className="py-6 bg-[var(--color-paper)] border-b border-[var(--color-border)] sticky top-[60px] z-40">
+      {/* Quick Navigation - Fixed anchor links */}
+      <section className="py-4 bg-[var(--color-paper)] border-b border-[var(--color-border)] sticky top-[60px] z-40">
         <div className="container-wide">
-          <nav className="flex flex-wrap gap-6 text-sm">
-            <a href="#courses" className="text-[var(--color-ink-muted)] hover:text-[var(--color-accent-primary)] transition-colors">
-              Course Materials
-            </a>
-            <a href="#objectives" className="text-[var(--color-ink-muted)] hover:text-[var(--color-accent-primary)] transition-colors">
+          <nav className="flex flex-wrap gap-8 text-sm">
+            <button 
+              onClick={() => scrollToSection('objectives')}
+              className={`transition-colors ${activeSection === 'objectives' ? 'text-[var(--color-accent-primary)] font-medium' : 'text-[var(--color-ink-muted)] hover:text-[var(--color-accent-primary)]'}`}
+            >
               Research Objectives
-            </a>
-            <a href="#methodology" className="text-[var(--color-ink-muted)] hover:text-[var(--color-accent-primary)] transition-colors">
+            </button>
+            <button 
+              onClick={() => scrollToSection('methodology')}
+              className={`transition-colors ${activeSection === 'methodology' ? 'text-[var(--color-accent-primary)] font-medium' : 'text-[var(--color-ink-muted)] hover:text-[var(--color-accent-primary)]'}`}
+            >
               Methodology
-            </a>
+            </button>
+            <button 
+              onClick={() => scrollToSection('courses')}
+              className={`transition-colors ${activeSection === 'courses' ? 'text-[var(--color-accent-primary)] font-medium' : 'text-[var(--color-ink-muted)] hover:text-[var(--color-accent-primary)]'}`}
+            >
+              Course Materials
+            </button>
+            <button 
+              onClick={() => scrollToSection('outcomes')}
+              className={`transition-colors ${activeSection === 'outcomes' ? 'text-[var(--color-accent-primary)] font-medium' : 'text-[var(--color-ink-muted)] hover:text-[var(--color-accent-primary)]'}`}
+            >
+              Learning Outcomes
+            </button>
             <Link to="/team" className="text-[var(--color-ink-muted)] hover:text-[var(--color-accent-primary)] transition-colors">
               Research Team
             </Link>
@@ -98,270 +250,524 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Course Materials - Main Content */}
-      <section id="courses" className="py-16">
+      {/* Research Objectives - Editorial Style */}
+      <section id="objectives" className="py-20">
         <div className="container-wide">
-          <div className="mb-10">
-            <h2 className="font-[var(--font-headline)] text-2xl text-[var(--color-ink)] mb-2">
-              Course Materials
+          <div className="max-w-4xl">
+            <h2 className="font-[var(--font-headline)] text-3xl text-[var(--color-ink)] mb-8">
+              Project Overview
             </h2>
-            <p className="text-[var(--color-ink-muted)]">
-              Educational resources developed for each course in the curriculum integration.
+            
+            <div className="space-y-6 text-lg text-[var(--color-ink-light)] leading-relaxed">
+              <p>
+                <span className="font-semibold text-[var(--color-ink)]">PerfStudio</span> is an NSF-funded 
+                educational research project that develops <span className="bg-[var(--color-highlight)] px-1">problem-based 
+                learning (PBL) curricular units</span> to integrate Software Performance Engineering (SPE) 
+                concepts across undergraduate Computer Science, Software Engineering, and Systems Engineering programs.
+              </p>
+              
+              <p>
+                Software performance is critical to user experience, system reliability, and business success—yet 
+                SPE remains <span className="text-[var(--color-accent-coral)] font-medium">underrepresented in most 
+                CS curricula</span>. Students often graduate without understanding how to identify, measure, or 
+                reason about performance issues in production systems.
+              </p>
+              
+              <p>
+                PerfStudio addresses this gap through <span className="bg-[var(--color-highlight)] px-1">5 cohesive 
+                course units</span> covering SPE basics, performance modeling, bottleneck analysis, data collection, 
+                and performance testing. These units are integrated into <span className="text-[var(--color-accent-primary)] font-medium">4 
+                undergraduate courses</span> (SSW 315, 345, 533, 567) spanning junior and senior years, with 
+                plans to expand across CS and Systems Engineering programs.
+              </p>
+              
+              <p>
+                Our approach emphasizes <span className="font-semibold text-[var(--color-ink)]">authentic industry 
+                problems</span>—including COVID Vaccine Scheduling systems, Apache Avro performance issues, and 
+                crowdsourced performance testing games—to ensure students can apply SPE knowledge and techniques 
+                to real-world scenarios.
+              </p>
+            </div>
+
+            {/* Research Questions */}
+            <div className="mt-10 pt-8 border-t border-[var(--color-border)]">
+              <h3 className="font-semibold text-[var(--color-ink)] text-sm uppercase tracking-wide mb-4">
+                Research Questions
+              </h3>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="flex items-start gap-3">
+                  <span className="font-[var(--font-mono)] text-xs text-[var(--color-accent-primary)] font-semibold mt-1">RQ1</span>
+                  <span className="text-[var(--color-ink-light)]">How does PerfStudio impact students' <strong>SPE awareness</strong>?</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="font-[var(--font-mono)] text-xs text-[var(--color-accent-coral)] font-semibold mt-1">RQ2</span>
+                  <span className="text-[var(--color-ink-light)]">How does PerfStudio affect perceived <strong>understanding of SPE concepts</strong>?</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="font-[var(--font-mono)] text-xs text-[var(--color-accent-purple)] font-semibold mt-1">RQ3</span>
+                  <span className="text-[var(--color-ink-light)]">How do students demonstrate <strong>competencies in SPE skills</strong>?</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="font-[var(--font-mono)] text-xs text-[var(--color-accent-teal)] font-semibold mt-1">RQ4</span>
+                  <span className="text-[var(--color-ink-light)]">How does PerfStudio affect students' <strong>self-efficacy</strong> in SPE learning?</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Methodology - SPE Units & PBL */}
+      <section id="methodology" className="py-20 bg-[var(--color-paper)] border-y border-[var(--color-border)]">
+        <div className="container-wide">
+          <div className="mb-12">
+            <h2 className="font-[var(--font-headline)] text-3xl text-[var(--color-ink)] mb-3">
+              Curricular Framework
+            </h2>
+            <p className="text-[var(--color-ink-muted)] max-w-2xl">
+              Five cohesive SPE units integrated across the undergraduate curriculum through problem-based learning.
             </p>
           </div>
 
-          <div className="space-y-6">
+          {/* SPE Units Table */}
+          <div className="bg-white border border-[var(--color-border)] overflow-hidden mb-12">
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[var(--color-ink)] text-white">
+                    <th className="text-left py-3 px-4 font-medium">Unit</th>
+                    <th className="text-left py-3 px-4 font-medium">Topics</th>
+                    <th className="text-left py-3 px-4 font-medium">Learning Outcomes</th>
+                    <th className="text-left py-3 px-4 font-medium">PBL Activities</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-[var(--color-border)]">
+                    <td className="py-3 px-4">
+                      <span className="font-semibold text-[var(--color-accent-purple)]">Unit 1</span><br/>
+                      <span className="text-xs text-[var(--color-ink-muted)]">SPE Basics</span>
+                    </td>
+                    <td className="py-3 px-4 text-[var(--color-ink-light)]">SPE terminologies and methodologies</td>
+                    <td className="py-3 px-4 text-[var(--color-ink-light)]">Understand basic SPE concepts; Common performance strategies</td>
+                    <td className="py-3 px-4"><span className="bg-[var(--color-highlight)] px-1 text-xs">COVID Vaccine Scheduling</span></td>
+                  </tr>
+                  <tr className="border-b border-[var(--color-border)] bg-[var(--color-paper)]/50">
+                    <td className="py-3 px-4">
+                      <span className="font-semibold text-[var(--color-accent-teal)]">Unit 2</span><br/>
+                      <span className="text-xs text-[var(--color-ink-muted)]">Performance Modeling</span>
+                    </td>
+                    <td className="py-3 px-4 text-[var(--color-ink-light)]">NodeJS architecture, Execution Graph, Performance Metrics</td>
+                    <td className="py-3 px-4 text-[var(--color-ink-light)]">Apply Software & System Execution Models</td>
+                    <td className="py-3 px-4"><span className="bg-[var(--color-highlight)] px-1 text-xs">COVID Vaccine Scheduling</span></td>
+                  </tr>
+                  <tr className="border-b border-[var(--color-border)]">
+                    <td className="py-3 px-4">
+                      <span className="font-semibold text-[var(--color-accent-primary)]">Unit 3</span><br/>
+                      <span className="text-xs text-[var(--color-ink-muted)]">Bottleneck Analysis</span>
+                    </td>
+                    <td className="py-3 px-4 text-[var(--color-ink-light)]">Basic Queueing Theory</td>
+                    <td className="py-3 px-4 text-[var(--color-ink-light)]">Interpret system metrics; Identify bottleneck resources</td>
+                    <td className="py-3 px-4"><span className="bg-[var(--color-highlight)] px-1 text-xs">COVID Vaccine Scheduling</span></td>
+                  </tr>
+                  <tr className="border-b border-[var(--color-border)] bg-[var(--color-paper)]/50">
+                    <td className="py-3 px-4">
+                      <span className="font-semibold text-[var(--color-accent-coral)]">Unit 4</span><br/>
+                      <span className="text-xs text-[var(--color-ink-muted)]">Data Collection</span>
+                    </td>
+                    <td className="py-3 px-4 text-[var(--color-ink-light)]">Statistics, data analytics, hypothesis testing</td>
+                    <td className="py-3 px-4 text-[var(--color-ink-light)]">Apply techniques & tools for SPE data collection</td>
+                    <td className="py-3 px-4"><span className="bg-[var(--color-accent-coral)]/10 text-[var(--color-accent-coral)] px-1 text-xs font-medium">Apache Avro ROI Analysis</span></td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 px-4">
+                      <span className="font-semibold text-[var(--color-accent-warm)]">Unit 5</span><br/>
+                      <span className="text-xs text-[var(--color-ink-muted)]">Performance Testing</span>
+                    </td>
+                    <td className="py-3 px-4 text-[var(--color-ink-light)]">Test planning, resource & response time measurement</td>
+                    <td className="py-3 px-4 text-[var(--color-ink-light)]">Performance test cases; Apply measurement tools</td>
+                    <td className="py-3 px-4"><span className="bg-[var(--color-highlight)] px-1 text-xs">Crowdsourced Testing Games</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* PBL Approach */}
+            <div className="bg-white border border-[var(--color-border)] p-6">
+              <h3 className="font-semibold text-[var(--color-ink)] mb-4">Problem-Based Learning Approach</h3>
+              <p className="text-sm text-[var(--color-ink-light)] mb-4">
+                PBL engages students in investigation of <span className="font-medium text-[var(--color-ink)]">authentic 
+                industry problems</span>. Students work as software quality analysts, exploring performance issues 
+                through real-world scenarios.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-[var(--color-accent-primary)]/10 rounded flex items-center justify-center flex-shrink-0">
+                    <span className="text-sm">🏥</span>
+                  </div>
+                  <div>
+                    <div className="font-medium text-[var(--color-ink)] text-sm">COVID Vaccine Scheduling</div>
+                    <div className="text-xs text-[var(--color-ink-muted)]">Performance requirements, modeling, bottleneck analysis</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-[var(--color-accent-coral)]/10 rounded flex items-center justify-center flex-shrink-0">
+                    <span className="text-sm">📊</span>
+                  </div>
+                  <div>
+                    <div className="font-medium text-[var(--color-ink)] text-sm">Apache Avro Analysis</div>
+                    <div className="text-xs text-[var(--color-ink-muted)]">50 curated issue tickets for ROI analysis</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-[var(--color-accent-purple)]/10 rounded flex items-center justify-center flex-shrink-0">
+                    <span className="text-sm">🎮</span>
+                  </div>
+                  <div>
+                    <div className="font-medium text-[var(--color-ink)] text-sm">Crowdsourced Testing Games</div>
+                    <div className="text-xs text-[var(--color-ink-muted)]">JMeter testing with virtual users</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Interactive ROI Steps */}
+            <div className="bg-white border border-[var(--color-border)] p-6">
+              <h3 className="font-semibold text-[var(--color-ink)] mb-4">
+                ROI Analysis Framework
+                <span className="ml-2 text-xs font-normal text-[var(--color-ink-muted)]">(Unit 4)</span>
+              </h3>
+              
+              {/* Step Indicators */}
+              <div className="flex gap-1 mb-4">
+                {roiSteps.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveStep(index)}
+                    className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${
+                      index === activeStep 
+                        ? 'bg-[var(--color-accent-coral)]' 
+                        : 'bg-[var(--color-border)]'
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Active Step */}
+              <div className="bg-[var(--color-paper)] p-4 mb-4 min-h-[120px]">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-6 h-6 rounded-full bg-[var(--color-accent-coral)] text-white flex items-center justify-center text-xs font-bold">
+                    {roiSteps[activeStep].step}
+                  </span>
+                  <span className="font-medium text-[var(--color-ink)]">{roiSteps[activeStep].title}</span>
+                </div>
+                <p className="text-sm text-[var(--color-ink-muted)] mb-2">{roiSteps[activeStep].description}</p>
+                <p className="text-xs font-[var(--font-mono)] text-[var(--color-ink-subtle)] italic">
+                  "{roiSteps[activeStep].example}"
+                </p>
+              </div>
+
+              {/* Step List */}
+              <div className="flex flex-wrap gap-2">
+                {roiSteps.map((step, index) => (
+                  <button
+                    key={step.step}
+                    onClick={() => setActiveStep(index)}
+                    className={`px-3 py-1 text-xs rounded transition-all ${
+                      index === activeStep 
+                        ? 'bg-[var(--color-accent-coral)] text-white' 
+                        : 'bg-[var(--color-paper)] text-[var(--color-ink-muted)] hover:bg-[var(--color-border)]'
+                    }`}
+                  >
+                    {step.step}. {step.title}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Course Implementation */}
+      <section id="courses" className="py-20 bg-[var(--color-paper)] border-y border-[var(--color-border)]">
+        <div className="container-wide">
+          <div className="mb-12">
+            <h2 className="font-[var(--font-headline)] text-3xl text-[var(--color-ink)] mb-3">
+              Course Implementation
+            </h2>
+            <p className="text-[var(--color-ink-muted)] max-w-2xl">
+              PerfStudio units are integrated into 4 undergraduate Software Engineering courses at Stevens, 
+              spanning junior and senior years with approximately 360 students over the project duration.
+            </p>
+          </div>
+
+          {/* Implementation Timeline Visual */}
+          <div className="mb-8 p-4 bg-white border border-[var(--color-border)]">
+            <div className="flex items-center justify-between text-xs text-[var(--color-ink-muted)] mb-2">
+              <span>Junior Year</span>
+              <span>Senior Year</span>
+            </div>
+            <div className="flex gap-2">
+              <div className="flex-1 h-2 bg-[var(--color-accent-purple)]/30 rounded-l" title="SSW 315 - Fall"></div>
+              <div className="flex-1 h-2 bg-[var(--color-accent-teal)]/30" title="SSW 345 - Spring"></div>
+              <div className="flex-1 h-2 bg-[var(--color-accent-coral)]" title="SSW 533 - Fall (Active)"></div>
+              <div className="flex-1 h-2 bg-[var(--color-accent-primary)]/30 rounded-r" title="SSW 567 - Spring"></div>
+            </div>
+            <div className="flex justify-between text-xs mt-2">
+              <span className="text-[var(--color-accent-purple)]">Fall</span>
+              <span className="text-[var(--color-accent-teal)]">Spring</span>
+              <span className="text-[var(--color-accent-coral)] font-medium">Fall ●</span>
+              <span className="text-[var(--color-accent-primary)]">Spring</span>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
             {courses.map((course) => (
               <div 
                 key={course.id}
-                className={`border border-[var(--color-border)] bg-white ${
-                  course.status === 'coming' ? 'opacity-60' : ''
+                className={`group relative bg-white overflow-hidden transition-all duration-300 ${
+                  course.status === 'coming' 
+                    ? 'opacity-70' 
+                    : 'hover:shadow-lg cursor-pointer'
                 }`}
+                style={{ 
+                  borderWidth: '1px',
+                  borderColor: course.status === 'active' ? course.color : 'var(--color-border)',
+                  borderLeftWidth: '4px',
+                  borderLeftColor: course.color,
+                }}
               >
-                <div className="p-6">
-                  <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+                {course.status === 'active' && (
+                  <Link to={`/courses/${course.id}`} className="absolute inset-0 z-10" />
+                )}
+                
+                <div className="p-5">
+                  <div className="flex items-start justify-between mb-3">
                     <div>
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="font-[var(--font-mono)] text-sm font-semibold text-[var(--color-accent-primary)]">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="font-[var(--font-mono)] text-sm font-semibold" style={{ color: course.color }}>
                           {course.code}
                         </span>
-                        {course.status === 'coming' && (
-                          <span className="text-xs text-[var(--color-ink-subtle)] border border-[var(--color-border)] px-2 py-0.5">
-                            In Development
-                          </span>
-                        )}
+                        <span className="text-xs text-[var(--color-ink-subtle)]">•</span>
+                        <span className="text-xs text-[var(--color-ink-muted)]">{course.year}</span>
                       </div>
-                      <h3 className="font-[var(--font-headline)] text-xl text-[var(--color-ink)]">
+                      <h3 className="font-[var(--font-headline)] text-lg text-[var(--color-ink)] group-hover:text-[var(--color-accent-primary)] transition-colors">
                         {course.title}
                       </h3>
-                      <p className="text-sm text-[var(--color-accent-primary)] mt-1">
-                        Focus: {course.focus}
-                      </p>
                     </div>
-                    
-                    {course.status === 'active' && (
-                      <Link
-                        to={`/courses/${course.id}`}
-                        className="btn-editorial text-sm"
-                      >
-                        View Materials →
-                      </Link>
+                    {course.status === 'active' ? (
+                      <span className="text-xs bg-[var(--color-accent-coral)] text-white px-2 py-0.5 rounded">
+                        Materials Available
+                      </span>
+                    ) : (
+                      <span className="text-xs text-[var(--color-ink-subtle)] border border-[var(--color-border)] px-2 py-0.5">
+                        Coming Soon
+                      </span>
                     )}
                   </div>
+                  
+                  <div className="mb-3">
+                    <span className="text-xs font-medium px-2 py-0.5 rounded" style={{ 
+                      backgroundColor: `${course.color}15`,
+                      color: course.color 
+                    }}>
+                      {course.unit}
+                    </span>
+                  </div>
 
-                  <p className="text-[var(--color-ink-light)] text-sm mb-4">
-                    {course.description}
+                  <p className="text-sm text-[var(--color-ink-muted)] mb-3">
+                    <strong className="text-[var(--color-ink)]">Topics:</strong> {course.topics}
+                  </p>
+                  
+                  <p className="text-sm text-[var(--color-ink-muted)] mb-3">
+                    <strong className="text-[var(--color-ink)]">Outcomes:</strong> {course.outcomes}
                   </p>
 
-                  {course.materials.length > 0 && (
-                    <div className="flex flex-wrap gap-2">
-                      {course.materials.map((material) => (
-                        <span 
-                          key={material}
-                          className="text-xs bg-[var(--color-paper)] text-[var(--color-ink-muted)] px-2 py-1 border border-[var(--color-border)]"
-                        >
-                          {material}
-                        </span>
-                      ))}
+                  <div className="pt-3 border-t border-[var(--color-border)]">
+                    <p className="text-xs text-[var(--color-ink-subtle)]">
+                      <strong>PBL Activity:</strong> {course.pblActivity}
+                    </p>
+                  </div>
+
+                  {course.status === 'active' && (
+                    <div className="mt-3 flex items-center gap-1 text-sm text-[var(--color-accent-primary)] font-medium">
+                      <span>View Materials</span>
+                      <span className="group-hover:translate-x-1 transition-transform">→</span>
                     </div>
                   )}
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* Research Objectives */}
-      <section id="objectives" className="py-16 bg-[var(--color-paper)] border-y border-[var(--color-border)]">
+      {/* Learning Outcomes - By Unit */}
+      <section id="outcomes" className="py-20 border-t border-[var(--color-border)]">
         <div className="container-wide">
-          <div className="mb-10">
-            <h2 className="font-[var(--font-headline)] text-2xl text-[var(--color-ink)] mb-2">
-              Research Objectives
+          <div className="max-w-4xl">
+            <h2 className="font-[var(--font-headline)] text-3xl text-[var(--color-ink)] mb-4">
+              Expected Learning Outcomes
             </h2>
-            <p className="text-[var(--color-ink-muted)]">
-              Core goals of this NSF-funded educational research initiative.
+            <p className="text-[var(--color-ink-muted)] mb-8">
+              Each PerfStudio unit targets specific SPE competencies, progressing from foundational 
+              concepts to applied skills across the curriculum.
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {researchObjectives.map((objective, index) => (
-              <div key={objective.title} className="bg-white border border-[var(--color-border)] p-6">
-                <div className="flex items-start gap-4">
-                  <span className="font-[var(--font-mono)] text-lg text-[var(--color-border-dark)]">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <div>
-                    <h3 className="font-semibold text-[var(--color-ink)] mb-2">
-                      {objective.title}
-                    </h3>
-                    <p className="text-sm text-[var(--color-ink-muted)] leading-relaxed">
-                      {objective.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Methodology */}
-      <section id="methodology" className="py-16">
-        <div className="container-wide">
-          <div className="grid lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-1">
-              <h2 className="font-[var(--font-headline)] text-2xl text-[var(--color-ink)] mb-2">
-                Methodology
-              </h2>
-              <p className="text-[var(--color-ink-muted)] text-sm">
-                How we structure performance education using real-world case studies.
-              </p>
-            </div>
             
-            <div className="lg:col-span-2 space-y-8">
-              <div>
-                <h3 className="font-semibold text-[var(--color-ink)] mb-3">
-                  Case Study: Apache Avro
-                </h3>
-                <p className="text-[var(--color-ink-light)] text-sm leading-relaxed mb-4">
-                  Apache Avro is a data serialization framework used in Apache Hadoop. 
-                  We selected 50 issue tickets from the Avro JIRA that represent diverse 
-                  performance challenges—from serialization bottlenecks to memory optimization.
-                </p>
-                <p className="text-[var(--color-ink-light)] text-sm leading-relaxed">
-                  Students examine these real issues to understand how engineers document 
-                  performance problems, interpret profiling data, and justify the effort 
-                  required for fixes.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-semibold text-[var(--color-ink)] mb-3">
-                  ROI Analysis Framework
-                </h3>
-                <p className="text-[var(--color-ink-light)] text-sm leading-relaxed mb-4">
-                  For each issue ticket, students complete a structured analysis:
-                </p>
-                <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-4 font-[var(--font-mono)] text-sm">
-                  <div className="grid grid-cols-2 gap-y-2 gap-x-8">
-                    <div><span className="text-[var(--color-ink-muted)]">1.</span> Performance Problem Summary</div>
-                    <div><span className="text-[var(--color-ink-muted)]">5.</span> Developer Effort</div>
-                    <div><span className="text-[var(--color-ink-muted)]">2.</span> Profiling Data</div>
-                    <div><span className="text-[var(--color-ink-muted)]">6.</span> Quality Trade-offs</div>
-                    <div><span className="text-[var(--color-ink-muted)]">3.</span> Metrics Used</div>
-                    <div><span className="text-[var(--color-ink-muted)]">7.</span> Personal Reflection</div>
-                    <div><span className="text-[var(--color-ink-muted)]">4.</span> Performance Improvement</div>
-                    <div></div>
-                  </div>
+            <div className="space-y-8">
+              {/* Unit 1 */}
+              <div className="border-l-4 border-[var(--color-accent-purple)] pl-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-accent-purple)]">UNIT 1</span>
+                  <span className="text-sm font-medium text-[var(--color-ink)]">SPE Basics</span>
                 </div>
+                <p className="text-[var(--color-ink-light)] leading-relaxed">
+                  Students will <span className="bg-[var(--color-highlight)] px-1">understand basic SPE 
+                  definitions and concepts</span>, including performance terminologies and methodologies. 
+                  They will learn <span className="text-[var(--color-accent-purple)] font-medium">common 
+                  performance strategies</span> and their limitations when analyzing real applications.
+                </p>
               </div>
 
-              <div>
-                <h3 className="font-semibold text-[var(--color-ink)] mb-3">
-                  Learning Assessment
-                </h3>
-                <p className="text-[var(--color-ink-light)] text-sm leading-relaxed">
-                  We use before/after surveys to measure changes in student understanding 
-                  of performance concepts, their ability to interpret profiling data, and 
-                  confidence in cost-benefit analysis. This data helps us refine materials 
-                  for future iterations.
+              {/* Unit 2 */}
+              <div className="border-l-4 border-[var(--color-accent-teal)] pl-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-accent-teal)]">UNIT 2</span>
+                  <span className="text-sm font-medium text-[var(--color-ink)]">Performance Modeling</span>
+                </div>
+                <p className="text-[var(--color-ink-light)] leading-relaxed">
+                  Students will <span className="text-[var(--color-accent-teal)] font-medium">apply Software 
+                  Execution Models and System Execution Models</span> to analyze application performance. 
+                  They will understand <span className="bg-[var(--color-highlight)] px-1">execution graphs 
+                  and performance metrics</span> in the context of NodeJS applications.
+                </p>
+              </div>
+
+              {/* Unit 3 */}
+              <div className="border-l-4 border-[var(--color-accent-primary)] pl-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-accent-primary)]">UNIT 3</span>
+                  <span className="text-sm font-medium text-[var(--color-ink)]">Bottleneck Analysis</span>
+                </div>
+                <p className="text-[var(--color-ink-light)] leading-relaxed">
+                  Students will understand <span className="bg-[var(--color-highlight)] px-1">basic system 
+                  performance metrics</span> and be able to interpret their values. Using 
+                  <span className="text-[var(--color-accent-primary)] font-medium"> basic queueing theory</span>, 
+                  they will learn to identify bottleneck resources in system execution models.
+                </p>
+              </div>
+
+              {/* Unit 4 */}
+              <div className="border-l-4 border-[var(--color-accent-coral)] pl-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-accent-coral)]">UNIT 4</span>
+                  <span className="text-sm font-medium text-[var(--color-ink)]">Performance Data Collection</span>
+                </div>
+                <p className="text-[var(--color-ink-light)] leading-relaxed">
+                  Students will <span className="text-[var(--color-accent-coral)] font-medium">apply techniques 
+                  and tools for SPE data collection</span>, including basic statistics, data analytics, and 
+                  hypothesis testing. Through ROI analysis of Apache Avro issues, they learn to 
+                  <span className="bg-[var(--color-highlight)] px-1">interpret profiling data and estimate 
+                  developer effort</span>.
+                </p>
+              </div>
+
+              {/* Unit 5 */}
+              <div className="border-l-4 border-[var(--color-accent-warm)] pl-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="font-[var(--font-mono)] text-xs font-semibold text-[var(--color-accent-warm)]">UNIT 5</span>
+                  <span className="text-sm font-medium text-[var(--color-ink)]">Performance Testing</span>
+                </div>
+                <p className="text-[var(--color-ink-light)] leading-relaxed">
+                  Students will understand <span className="bg-[var(--color-highlight)] px-1">performance test 
+                  cases with reference to workload specifications</span> and performance requirements. They will 
+                  <span className="text-[var(--color-accent-warm)] font-medium"> apply tools like JMeter</span> to 
+                  measure resource usage and response time of real software systems.
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Learning Outcomes */}
-      <section className="py-16 bg-[var(--color-paper)] border-y border-[var(--color-border)]">
-        <div className="container-wide">
-          <div className="mb-10">
-            <h2 className="font-[var(--font-headline)] text-2xl text-[var(--color-ink)] mb-2">
-              Student Learning Outcomes
-            </h2>
-            <p className="text-[var(--color-ink-muted)]">
-              What students should be able to do after completing these modules.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              'Understand the importance of software performance in production systems',
-              'Identify what constitutes a performance issue in real projects',
-              'Learn performance metrics commonly used in industry',
-              'Interpret profiling and benchmark data from issue reports',
-              'Estimate developer effort required to fix performance issues',
-              'Evaluate performance improvements based on profiling data',
-              'Reason about trade-offs among performance, maintainability, and readability',
-              'Communicate performance findings in cost-benefit terms',
-              'Integrate performance considerations into software cost estimation',
-            ].map((outcome, index) => (
-              <div 
-                key={index}
-                className="flex items-start gap-3 bg-white border border-[var(--color-border)] p-4"
-              >
-                <span className="w-5 h-5 rounded-full bg-[var(--color-accent-primary)]/10 text-[var(--color-accent-primary)] flex items-center justify-center text-xs font-semibold flex-shrink-0 mt-0.5">
-                  {index + 1}
-                </span>
-                <span className="text-sm text-[var(--color-ink-light)]">
-                  {outcome}
-                </span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
       {/* Quick Access */}
-      <section className="py-16">
+      <section className="py-20 bg-[var(--color-paper)] border-t border-[var(--color-border)]">
         <div className="container-wide">
+          <div className="text-center mb-12">
+            <h2 className="font-[var(--font-headline)] text-3xl text-[var(--color-ink)] mb-3">
+              Explore PerfStudio
+            </h2>
+            <p className="text-[var(--color-ink-muted)]">
+              Access course materials, meet the research team, or request resources for your institution.
+            </p>
+          </div>
+          
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="border border-[var(--color-border)] bg-white p-6">
-              <h3 className="font-semibold text-[var(--color-ink)] mb-2">SSW 533 Materials</h3>
+            <button 
+              onClick={() => scrollToSection('courses')}
+              className="group border-2 border-[var(--color-border)] bg-white p-8 text-center hover:border-[var(--color-accent-coral)] hover:shadow-lg transition-all duration-300"
+            >
+              <div className="w-16 h-16 mx-auto mb-4 bg-[var(--color-accent-coral)]/10 text-[var(--color-accent-coral)] flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                📚
+              </div>
+              <h3 className="font-semibold text-[var(--color-ink)] mb-2">Course Materials</h3>
               <p className="text-sm text-[var(--color-ink-muted)] mb-4">
-                Access lecture slides, activity templates, and ROI analysis sheets.
+                Browse PBL activities, lecture slides, and learning resources for each course.
               </p>
-              <Link to="/courses/533" className="interactive-link text-sm font-medium">
-                Go to SSW 533 →
-              </Link>
-            </div>
+              <span className="text-[var(--color-accent-coral)] font-medium group-hover:underline">
+                View Courses →
+              </span>
+            </button>
             
-            <div className="border border-[var(--color-border)] bg-white p-6">
+            <Link 
+              to="/team" 
+              className="group border-2 border-[var(--color-border)] bg-white p-8 text-center hover:border-[var(--color-accent-primary)] hover:shadow-lg transition-all duration-300"
+            >
+              <div className="w-16 h-16 mx-auto mb-4 bg-[var(--color-accent-primary)]/10 text-[var(--color-accent-primary)] flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                👥
+              </div>
               <h3 className="font-semibold text-[var(--color-ink)] mb-2">Research Team</h3>
               <p className="text-sm text-[var(--color-ink-muted)] mb-4">
-                Meet the faculty and researchers behind this project.
+                Meet the faculty and researchers behind the PerfStudio project.
               </p>
-              <Link to="/team" className="interactive-link text-sm font-medium">
+              <span className="text-[var(--color-accent-primary)] font-medium group-hover:underline">
                 View Team →
-              </Link>
-            </div>
+              </span>
+            </Link>
             
-            <div className="border border-[var(--color-border)] bg-white p-6">
-              <h3 className="font-semibold text-[var(--color-ink)] mb-2">Exit Survey</h3>
+            <Link 
+              to="/resources"
+              className="group border-2 border-[var(--color-border)] bg-white p-8 text-center hover:border-[var(--color-accent-purple)] hover:shadow-lg transition-all duration-300"
+            >
+              <div className="w-16 h-16 mx-auto mb-4 bg-[var(--color-accent-purple)]/10 text-[var(--color-accent-purple)] flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                📦
+              </div>
+              <h3 className="font-semibold text-[var(--color-ink)] mb-2">Download Resources</h3>
               <p className="text-sm text-[var(--color-ink-muted)] mb-4">
-                Completed the activity? Share your feedback to help us improve.
+                Access all PerfStudio course materials for use at your institution.
               </p>
-              <a 
-                href="https://stevens.qualtrics.com/jfe/form/SV_bfnyQnFGjdbQrEW"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="interactive-link text-sm font-medium"
-              >
-                Take Survey →
-              </a>
-            </div>
+              <span className="text-[var(--color-accent-purple)] font-medium group-hover:underline">
+                View Resources →
+              </span>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Acknowledgment */}
-      <section className="py-12 border-t border-[var(--color-border)]">
+      <section className="py-12 border-t border-[var(--color-border)] bg-[var(--color-paper)]">
         <div className="container-wide">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <div className="text-sm text-[var(--color-ink-muted)]">
-              <strong className="text-[var(--color-ink)]">Acknowledgment:</strong>{' '}
-              This project is funded by the National Science Foundation (NSF).
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-[var(--color-accent-primary)] text-white flex items-center justify-center font-bold text-lg">
+                NSF
+              </div>
+              <div className="text-sm text-[var(--color-ink-muted)]">
+                <strong className="text-[var(--color-ink)]">Acknowledgment:</strong>{' '}
+                This project is funded by the National Science Foundation (NSF).
+              </div>
             </div>
             <a
               href="https://nsf.gov"
