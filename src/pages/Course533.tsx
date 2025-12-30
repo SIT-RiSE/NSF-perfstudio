@@ -12,56 +12,80 @@ const scrollToSection = (sectionId: string) => {
   }
 }
 
+// Project information for batch tickets
+const projects = {
+  AVRO: {
+    name: 'Apache Avro',
+    jiraBase: 'https://issues.apache.org/jira/browse/',
+    description: 'A data serialization framework developed within Apache Hadoop. Uses JSON for defining data types and serializes data in a compact binary format.',
+  },
+  PDFBOX: {
+    name: 'Apache PDFBox',
+    jiraBase: 'https://issues.apache.org/jira/browse/',
+    description: 'An open-source Java tool for working with PDF documents—creation, manipulation, and content extraction.',
+  },
+  COLLECTIONS: {
+    name: 'Apache Commons Collections',
+    jiraBase: 'https://issues.apache.org/jira/browse/',
+    description: 'Extends the Java Collections Framework with new interfaces, implementations, and utilities for common data structures.',
+  },
+  GROOVY: {
+    name: 'Apache Groovy',
+    jiraBase: 'https://issues.apache.org/jira/browse/',
+    description: 'A powerful, optionally typed and dynamic language for the Java platform aimed at improving developer productivity.',
+  },
+}
+
 const batchFiles = [
   { 
     id: 1, 
-    tickets: ['AVRO-3050', 'AVRO-392', 'AVRO-1282', 'AVRO-2145', 'AVRO-1876'],
-    themes: ['Serialization overhead', 'Memory allocation', 'Schema parsing'],
+    project: 'AVRO',
+    tickets: ['AVRO-1282', 'AVRO-1332', 'AVRO-1089', 'AVRO-1090', 'AVRO-1348'],
   },
   { 
     id: 2, 
-    tickets: ['AVRO-2234', 'AVRO-1567', 'AVRO-890', 'AVRO-2456', 'AVRO-1123'],
-    themes: ['Deserialization speed', 'Buffer management', 'Type conversion'],
+    project: 'AVRO',
+    tickets: ['AVRO-1282', 'AVRO-392', 'AVRO-388', 'AVRO-557', 'AVRO-673'],
   },
   { 
     id: 3, 
-    tickets: ['AVRO-3123', 'AVRO-2789', 'AVRO-1456', 'AVRO-2012', 'AVRO-1789'],
-    themes: ['I/O bottlenecks', 'Caching strategies', 'Thread contention'],
+    project: 'AVRO',
+    tickets: ['AVRO-1332', 'AVRO-392', 'AVRO-743', 'AVRO-1348', 'AVRO-765'],
   },
   { 
     id: 4, 
-    tickets: ['AVRO-2567', 'AVRO-1890', 'AVRO-3234', 'AVRO-1234', 'AVRO-2678'],
-    themes: ['Codec efficiency', 'Compression trade-offs', 'Memory footprint'],
+    project: 'AVRO',
+    tickets: ['AVRO-753', 'AVRO-765', 'AVRO-853', 'AVRO-934', 'AVRO-946'],
   },
   { 
     id: 5, 
-    tickets: ['AVRO-1345', 'AVRO-2901', 'AVRO-1678', 'AVRO-3012', 'AVRO-2345'],
-    themes: ['Batch processing', 'Streaming performance', 'Resource cleanup'],
+    project: 'PDFBOX',
+    tickets: ['PDFBOX-1893', 'PDFBOX-1005', 'PDFBOX-1175', 'PDFBOX-2007', 'PDFBOX-2092'],
   },
   { 
     id: 6, 
-    tickets: ['AVRO-2456', 'AVRO-1789', 'AVRO-3123', 'AVRO-1901', 'AVRO-2567'],
-    themes: ['String handling', 'Object creation', 'GC pressure'],
+    project: 'PDFBOX',
+    tickets: ['PDFBOX-1893', 'PDFBOX-2117', 'PDFBOX-2126', 'PDFBOX-2127', 'PDFBOX-2303'],
   },
   { 
     id: 7, 
-    tickets: ['AVRO-1234', 'AVRO-2678', 'AVRO-1456', 'AVRO-3234', 'AVRO-2012'],
-    themes: ['Reflection overhead', 'Code generation', 'Lazy initialization'],
+    project: 'PDFBOX',
+    tickets: ['PDFBOX-1893', 'PDFBOX-3103', 'PDFBOX-3224', 'PDFBOX-3382', 'PDFBOX-3418'],
   },
   { 
     id: 8, 
-    tickets: ['AVRO-2789', 'AVRO-1567', 'AVRO-3345', 'AVRO-1890', 'AVRO-2123'],
-    themes: ['Network latency', 'Protocol efficiency', 'Connection pooling'],
+    project: 'COLLECTIONS',
+    tickets: ['COLLECTIONS-534', 'COLLECTIONS-406', 'COLLECTIONS-407', 'COLLECTIONS-408', 'COLLECTIONS-409'],
   },
   { 
     id: 9, 
-    tickets: ['AVRO-1678', 'AVRO-2901', 'AVRO-1234', 'AVRO-3456', 'AVRO-2234'],
-    themes: ['File format optimization', 'Block sizing', 'Metadata overhead'],
+    project: 'COLLECTIONS',
+    tickets: ['COLLECTIONS-534', 'COLLECTIONS-419', 'COLLECTIONS-426', 'COLLECTIONS-427', 'COLLECTIONS-429'],
   },
   { 
     id: 10, 
-    tickets: ['AVRO-2345', 'AVRO-1890', 'AVRO-3012', 'AVRO-1567', 'AVRO-2678'],
-    themes: ['API design impact', 'Backward compatibility', 'Upgrade paths'],
+    project: 'GROOVY',
+    tickets: ['GROOVY-323', 'GROOVY-3256', 'GROOVY-5428', 'GROOVY-7705', 'GROOVY-7873'],
   },
 ]
 
@@ -351,99 +375,174 @@ export default function Course533() {
       {/* Exercise Section - Combined Activity + Batches */}
       <section id="exercise" className="py-12">
         <div className="container-wide">
-          <p className="section-label mb-2">Hands-on Exercise</p>
-          <h2 className="font-[var(--font-headline)] text-xl text-[var(--color-ink)] mb-2">
-            ROI Analysis Activity
-          </h2>
-          <p className="text-sm text-[var(--color-ink-muted)] mb-8 max-w-2xl">
-            After the guest lecture, students apply the ROI analysis framework to real Apache Avro 
-            issue tickets—acting as software quality analysts to examine performance problems 
-            and trade-offs.
-          </p>
-
-          {/* Instructions Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
             <div>
+              <p className="section-label mb-2">Hands-on Exercise</p>
+              <h2 className="font-[var(--font-headline)] text-xl text-[var(--color-ink)]">
+                ROI Analysis Activity
+              </h2>
+            </div>
+            <div className="flex items-center gap-6 text-sm text-[var(--color-ink-muted)]">
+              <span className="flex items-center gap-1.5">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                ~1 hour
+              </span>
+              <span className="flex items-center gap-1.5">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                3 tickets
+              </span>
+            </div>
+          </div>
+
+          {/* Two Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            {/* Left: Task Overview */}
+            <div className="flex flex-col">
               <h3 className="font-semibold text-[var(--color-ink)] mb-4">Task Overview</h3>
-              <ol className="space-y-3 text-sm">
+              <ol className="space-y-4 mb-6">
                 <li className="flex gap-3">
-                  <span className="w-6 h-6 bg-[var(--color-accent-primary)] text-white rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0">1</span>
+                  <span className="w-6 h-6 border-2 border-[var(--color-accent-primary)] text-[var(--color-accent-primary)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
                   <div>
-                    <strong className="text-[var(--color-ink)]">Review the Guest Lecture</strong>
-                    <p className="text-[var(--color-ink-muted)]">
-                      Understand performance metrics and the ROI analysis framework.
-                    </p>
+                    <p className="font-medium text-[var(--color-ink)] text-sm">Review the Guest Lecture</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Understand performance metrics, profiling tools, and the ROI analysis framework.</p>
                   </div>
                 </li>
                 <li className="flex gap-3">
-                  <span className="w-6 h-6 bg-[var(--color-accent-primary)] text-white rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0">2</span>
+                  <span className="w-6 h-6 border-2 border-[var(--color-accent-primary)] text-[var(--color-accent-primary)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
                   <div>
-                    <strong className="text-[var(--color-ink)]">Analyze 3 Issue Tickets</strong>
-                    <p className="text-[var(--color-ink-muted)]">
-                      From your assigned batch below, determine if each is performance-related.
-                    </p>
+                    <p className="font-medium text-[var(--color-ink)] text-sm">Analyze 3 Issue Tickets</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Select a batch from the <strong className="text-[var(--color-accent-primary)]">Issue Ticket Batches</strong> section below, then choose 3 tickets to analyze using the template.</p>
                   </div>
                 </li>
                 <li className="flex gap-3">
-                  <span className="w-6 h-6 bg-[var(--color-accent-primary)] text-white rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0">3</span>
+                  <span className="w-6 h-6 border-2 border-[var(--color-accent-primary)] text-[var(--color-accent-primary)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
                   <div>
-                    <strong className="text-[var(--color-ink)]">Submit Analysis</strong>
-                    <p className="text-[var(--color-ink-muted)]">
-                      Submit to Canvas
-                    </p>
+                    <p className="font-medium text-[var(--color-ink)] text-sm">Submit Analysis</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Upload the completed analysis document to Canvas.</p>
                   </div>
                 </li>
               </ol>
-              <div className="mt-4 flex items-center gap-4 text-xs text-[var(--color-ink-muted)]">
-                <span className="flex items-center gap-1">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  ~1 hour total
-                </span>
-                <span>•</span>
-                <span>3 tickets per student</span>
-                <span>•</span>
-                <span>10-20 min per ticket</span>
+
+              {/* What You'll Learn */}
+              <div className="mb-6">
+                <h4 className="text-xs font-semibold text-[var(--color-ink-muted)] uppercase tracking-wide mb-3">What You'll Learn</h4>
+                <ul className="space-y-2 text-xs text-[var(--color-ink-light)]">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-teal)]">✓</span>
+                    <span>How real engineers identify performance bottlenecks</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-teal)]">✓</span>
+                    <span>Interpreting profiling data and benchmark results</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-teal)]">✓</span>
+                    <span>Evaluating effort vs. performance improvement trade-offs</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Student Role */}
+              <div className="bg-[var(--color-highlight)] border border-[var(--color-accent-warm)]/30 p-4">
+                <p className="text-xs font-semibold text-[var(--color-accent-warm)] uppercase tracking-wide mb-2">Student Role</p>
+                <p className="text-sm text-[var(--color-ink)]">
+                  Act as a <strong>software quality analyst</strong>, exploring performance problems and evaluating the 
+                  return on investment (ROI) involved in fixing real-world bugs.
+                </p>
               </div>
             </div>
 
-            <div>
+            {/* Right: Analysis Template */}
+            <div className="flex flex-col">
               <h3 className="font-semibold text-[var(--color-ink)] mb-4">Analysis Template</h3>
               <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-4">
                 <p className="text-xs text-[var(--color-ink-muted)] mb-3">
-                  For each performance-related ticket, document:
+                  For each ticket, answer these questions:
                 </p>
-                <div className="grid grid-cols-2 gap-2 text-xs">
-                  {[
-                    'Performance Problem Summary',
-                    'Profiling Data',
-                    'Metrics Used',
-                    'Performance Improvement',
-                    'Developer Effort',
-                    'Other Quality Attributes',
-                    'Reflection',
-                  ].map((field) => (
-                    <div key={field} className="flex items-center gap-2">
-                      <span className="w-3 h-3 border border-[var(--color-border)]"></span>
-                      <span className="text-[var(--color-ink)]">{field}</span>
-                    </div>
-                  ))}
+                <ol className="space-y-2.5 text-xs">
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-primary)] font-mono font-bold">1.</span>
+                    <span className="text-[var(--color-ink)]">Is this a performance issue? <span className="text-[var(--color-ink-muted)]">(Yes/No)</span></span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-primary)] font-mono font-bold">2.</span>
+                    <span className="text-[var(--color-ink)]">What is the problem? <span className="text-[var(--color-ink-muted)]">(1-3 sentences)</span></span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-primary)] font-mono font-bold">3.</span>
+                    <span className="text-[var(--color-ink)]">What profiling data is provided? <span className="text-[var(--color-ink-muted)]">(quote)</span></span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-primary)] font-mono font-bold">4.</span>
+                    <span className="text-[var(--color-ink)]">What metrics are used? <span className="text-[var(--color-ink-muted)]">(time, throughput)</span></span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-primary)] font-mono font-bold">5.</span>
+                    <span className="text-[var(--color-ink)]">How much was performance improved? <span className="text-[var(--color-ink-muted)]">(quantify)</span></span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-primary)] font-mono font-bold">6.</span>
+                    <span className="text-[var(--color-ink)]">What was the developer effort? <span className="text-[var(--color-ink-muted)]">(# devs, comments)</span></span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-primary)] font-mono font-bold">7.</span>
+                    <span className="text-[var(--color-ink)]">Other quality attributes? <span className="text-[var(--color-ink-muted)]">(maintainability)</span></span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-primary)] font-mono font-bold">8.</span>
+                    <span className="text-[var(--color-ink)]">What did you learn? <span className="text-[var(--color-ink-muted)]">(reflect)</span></span>
+                  </li>
+                </ol>
+                <div className="mt-4 pt-3 border-t border-[var(--color-border)]">
+                  <p className="text-xs text-[var(--color-ink-subtle)]">
+                    💡 Spend 10-20 minutes per ticket. Not all tickets are performance issues—that's part of the analysis!
+                  </p>
                 </div>
+              </div>
+
+              {/* After Completion */}
+              <div className="mt-auto pt-4 p-3 bg-white border border-[var(--color-border)]">
+                <p className="text-xs font-semibold text-[var(--color-ink)] mb-1">After Completion</p>
+                <p className="text-xs text-[var(--color-ink-muted)]">
+                  Take the optional 5-minute exit survey to share feedback and help improve future course materials.
+                </p>
               </div>
             </div>
           </div>
 
           {/* Issue Ticket Batches */}
           <div className="border-t border-[var(--color-border)] pt-8">
-            <div className="flex items-start justify-between gap-4 mb-4">
-              <div>
-                <h3 className="font-semibold text-[var(--color-ink)] mb-1">
-                  Ticket Batches
-                </h3>
-                <p className="text-sm text-[var(--color-ink-muted)]">
-                  10 batches × 5 tickets each — select your assigned batch
-                </p>
+            <div className="mb-6">
+              <h3 className="font-semibold text-[var(--color-ink)] mb-2">
+                Issue Ticket Batches
+              </h3>
+              <p className="text-sm text-[var(--color-ink-muted)] mb-3">
+                <span className="text-[var(--color-accent-primary)] font-medium">For Step 2:</span> Each batch contains 5 pre-selected issue tickets from real Apache open-source projects. 
+                Students select their assigned batch and analyze 3 tickets using the template above. These projects have 
+                well-documented issue tracking with profiling data, metrics, and developer discussions.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs mb-4">
+                <div className="flex items-center gap-2 text-[var(--color-ink-muted)]">
+                  <span className="w-2 h-2 bg-[var(--color-accent-primary)] rounded-full"></span>
+                  <span><strong>1-4:</strong> Apache Avro</span>
+                </div>
+                <div className="flex items-center gap-2 text-[var(--color-ink-muted)]">
+                  <span className="w-2 h-2 bg-[var(--color-accent-coral)] rounded-full"></span>
+                  <span><strong>5-7:</strong> Apache PDFBox</span>
+                </div>
+                <div className="flex items-center gap-2 text-[var(--color-ink-muted)]">
+                  <span className="w-2 h-2 bg-[var(--color-accent-teal)] rounded-full"></span>
+                  <span><strong>8-9:</strong> Commons Collections</span>
+                </div>
+                <div className="flex items-center gap-2 text-[var(--color-ink-muted)]">
+                  <span className="w-2 h-2 bg-[var(--color-accent-purple)] rounded-full"></span>
+                  <span><strong>10:</strong> Apache Groovy</span>
+                </div>
               </div>
             </div>
 
@@ -465,46 +564,60 @@ export default function Course533() {
             </div>
 
             {/* Selected Batch */}
-            {selectedBatch && (
-              <div className="bg-white border border-[var(--color-border)]">
-                <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)] bg-[var(--color-paper)]">
-                  <span className="font-medium text-[var(--color-ink)] text-sm">
-                    Batch {selectedBatch}
-                  </span>
-                  <a 
-                    href={`./materials/Batch-${selectedBatch}.pdf`}
-                    download
-                    className="inline-flex items-center gap-1.5 text-xs text-[var(--color-accent-primary)] hover:underline"
-                  >
-                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    Download PDF
-                  </a>
-                </div>
-                <div className="divide-y divide-[var(--color-border)]">
-                  {batchFiles.find(b => b.id === selectedBatch)?.tickets.map((ticket, i) => (
-                    <div key={ticket} className="flex items-center justify-between px-4 py-2.5 hover:bg-[var(--color-paper)] transition-colors">
-                      <div className="flex items-center gap-3">
-                        <span className="text-xs text-[var(--color-ink-subtle)] w-4">{i + 1}</span>
-                        <span className="font-[var(--font-mono)] text-sm text-[var(--color-ink)] font-medium">{ticket}</span>
-                      </div>
-                      <a
-                        href={`https://issues.apache.org/jira/browse/${ticket}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs text-[var(--color-accent-primary)] hover:underline inline-flex items-center gap-1"
-                      >
-                        JIRA
-                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </a>
+            {selectedBatch && (() => {
+              const batch = batchFiles.find(b => b.id === selectedBatch)
+              const projectKey = batch?.project as keyof typeof projects
+              const project = projects[projectKey]
+              return (
+                <div className="bg-white border border-[var(--color-border)]">
+                  <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)] bg-[var(--color-paper)]">
+                    <div>
+                      <span className="font-medium text-[var(--color-ink)] text-sm">
+                        Batch {selectedBatch}
+                      </span>
+                      <span className="text-xs text-[var(--color-ink-muted)] ml-2">
+                        — {project?.name}
+                      </span>
                     </div>
-                  ))}
+                    <a 
+                      href={`./materials/Batch-${selectedBatch}.pdf`}
+                      download
+                      className="inline-flex items-center gap-1.5 text-xs text-[var(--color-accent-primary)] hover:underline"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                      </svg>
+                      Download PDF
+                    </a>
+                  </div>
+                  {/* Project Description */}
+                  <div className="px-4 py-2 bg-[var(--color-highlight)]/30 border-b border-[var(--color-border)] text-xs text-[var(--color-ink-muted)]">
+                    {project?.description}
+                  </div>
+                  <div className="divide-y divide-[var(--color-border)]">
+                    {batch?.tickets.map((ticket, i) => (
+                      <div key={ticket} className="flex items-center justify-between px-4 py-2.5 hover:bg-[var(--color-paper)] transition-colors">
+                        <div className="flex items-center gap-3">
+                          <span className="text-xs text-[var(--color-ink-subtle)] w-4">{i + 1}</span>
+                          <span className="font-[var(--font-mono)] text-sm text-[var(--color-ink)] font-medium">{ticket}</span>
+                        </div>
+                        <a
+                          href={`${project?.jiraBase}${ticket}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs text-[var(--color-accent-primary)] hover:underline inline-flex items-center gap-1"
+                        >
+                          JIRA
+                          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )
+            })()}
 
           {/* For Educators */}
           <div className="mt-8 p-4 bg-[var(--color-highlight)] border border-[var(--color-accent-warm)]/20 text-sm">
