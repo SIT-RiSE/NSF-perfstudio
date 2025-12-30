@@ -2,50 +2,60 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-950 border-t border-navy-800/50">
-      <div className="container-custom mx-auto px-4 md:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-[var(--color-ink)] text-[var(--color-cream)]">
+      <div className="container-wide mx-auto py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-teal to-accent-coral flex items-center justify-center">
-                <svg className="w-6 h-6 text-navy-950" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            <Link to="/" className="flex items-center gap-3 mb-6">
+              <div className="w-9 h-9 flex items-center justify-center bg-[var(--color-cream)] rounded">
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="var(--color-ink)">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
                 </svg>
               </div>
-              <span className="font-display font-bold text-xl text-white">PerfStudio</span>
+              <span className="font-[var(--font-headline)] text-xl font-medium">
+                PerfStudio
+              </span>
             </Link>
-            <p className="text-navy-400 max-w-md">
-              An NSF-funded educational initiative integrating software performance concepts 
-              across undergraduate and graduate computer science curricula.
+            <p className="text-[var(--color-cream)]/70 text-sm leading-relaxed max-w-md">
+              An NSF-funded educational research initiative integrating software 
+              performance concepts across undergraduate and graduate computer science curricula.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Courses */}
           <div>
-            <h3 className="font-display font-semibold text-white mb-4">Courses</h3>
-            <ul className="space-y-2">
+            <h3 className="text-xs uppercase tracking-[0.2em] font-semibold mb-6 text-[var(--color-cream)]/50">
+              Courses
+            </h3>
+            <ul className="space-y-3">
               <li>
-                <Link to="/courses/533" className="text-navy-400 hover:text-accent-teal transition-colors">
-                  SSW 533 - ROI Analysis
+                <Link to="/courses/533" className="text-sm text-[var(--color-cream)]/80 hover:text-[var(--color-cream)] transition-colors">
+                  SSW 533 — ROI Analysis
                 </Link>
               </li>
               <li>
-                <span className="text-navy-600">SSW 325 - Coming Soon</span>
+                <span className="text-sm text-[var(--color-cream)]/40">
+                  SSW 325 — Coming Soon
+                </span>
               </li>
               <li>
-                <span className="text-navy-600">SSW 345 - Coming Soon</span>
+                <span className="text-sm text-[var(--color-cream)]/40">
+                  SSW 345 — Coming Soon
+                </span>
               </li>
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Links */}
           <div>
-            <h3 className="font-display font-semibold text-white mb-4">Resources</h3>
-            <ul className="space-y-2">
+            <h3 className="text-xs uppercase tracking-[0.2em] font-semibold mb-6 text-[var(--color-cream)]/50">
+              Links
+            </h3>
+            <ul className="space-y-3">
               <li>
-                <Link to="/team" className="text-navy-400 hover:text-accent-teal transition-colors">
-                  Our Team
+                <Link to="/team" className="text-sm text-[var(--color-cream)]/80 hover:text-[var(--color-cream)] transition-colors">
+                  Research Team
                 </Link>
               </li>
               <li>
@@ -53,33 +63,48 @@ export default function Footer() {
                   href="https://nsf.gov"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-navy-400 hover:text-accent-teal transition-colors"
+                  className="text-sm text-[var(--color-cream)]/80 hover:text-[var(--color-cream)] transition-colors inline-flex items-center gap-1"
                 >
                   NSF Website
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.stevens.edu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[var(--color-cream)]/80 hover:text-[var(--color-cream)] transition-colors inline-flex items-center gap-1"
+                >
+                  Stevens Institute
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-navy-800/50 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-navy-500 text-sm">
+        <div className="mt-16 pt-8 border-t border-[var(--color-cream)]/10 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-[var(--color-cream)]/50 text-xs">
             © {new Date().getFullYear()} NSF PerfStudio. All rights reserved.
           </p>
-          <div className="flex items-center gap-2 text-navy-500 text-sm">
-            <span>Funded by</span>
+          <p className="text-[var(--color-cream)]/50 text-xs flex items-center gap-2">
+            <span>Funded by the</span>
             <a 
               href="https://nsf.gov" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-accent-gold hover:text-accent-gold/80 transition-colors font-medium"
+              className="text-[var(--color-accent-warm)] hover:underline"
             >
               National Science Foundation
             </a>
-          </div>
+          </p>
         </div>
       </div>
     </footer>
   )
 }
-
