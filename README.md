@@ -87,8 +87,8 @@ Manual deployment can also be triggered from the Actions tab.
 ## 👥 Team
 
 - **Dr. Lu Xiao** - Principal Investigator, Stevens Institute of Technology
-- **Yu Tong** - Research Team Member
-- **Haowei Chen** - Research Team Member
+- **Dr. Yutong Zhao** - Research Team Member
+- **Dr. Chenhao Wei** - Research Team Member
 
 ## 🙏 Acknowledgments
 
