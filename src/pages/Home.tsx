@@ -54,13 +54,6 @@ const courses = [
 ]
 
 
-const roiSteps = [
-  { step: 1, title: 'Performance Problem', description: 'Identify and summarize the performance issue', example: '"BinaryDecoder.readString() allocates 3x unnecessary byte arrays"' },
-  { step: 2, title: 'Profiling Data', description: 'Extract metrics from the issue report', example: 'Before: 450ms, After: 120ms (73% improvement)' },
-  { step: 3, title: 'Metrics Analysis', description: 'Understand measurement methodology', example: 'JMH benchmark, 1M iterations, p99 latency' },
-  { step: 4, title: 'Developer Effort', description: 'Estimate implementation complexity', example: '~8 hours: refactor core decoder class' },
-  { step: 5, title: 'Trade-off Evaluation', description: 'Consider quality attribute impacts', example: 'Readability ↓ slightly, Performance ↑↑, Memory ↑' },
-]
 
 // Animated counter hook
 function useAnimatedCounter(end: number, duration: number = 2000, startAnimation: boolean = false) {
@@ -119,7 +112,6 @@ const scrollToSection = (sectionId: string) => {
 }
 
 export default function Home() {
-  const [activeStep, setActiveStep] = useState(0)
   const [activeSection, setActiveSection] = useState('')
   const statsReveal = useScrollReveal()
   
@@ -144,13 +136,6 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Auto-cycle through ROI steps
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % roiSteps.length)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [])
 
   return (
     <div className="min-h-screen">
@@ -180,7 +165,7 @@ export default function Home() {
           </p>
           
           {/* Quick Stats */}
-          <div ref={statsReveal.ref} className="grid grid-cols-2 md:grid-cols-5 gap-6 pt-8 border-t border-[var(--color-border)]">
+          <div ref={statsReveal.ref} className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-[var(--color-border)]">
             <div className="text-center md:text-left">
               <div className="font-[var(--font-headline)] text-3xl text-[var(--color-accent-purple)]">
                 5
@@ -200,14 +185,8 @@ export default function Home() {
               <div className="text-xs text-[var(--color-ink-muted)]">Student Participants</div>
             </div>
             <div className="text-center md:text-left">
-              <div className="font-[var(--font-headline)] text-3xl text-[var(--color-accent-teal)]">
-                3+
-              </div>
-              <div className="text-xs text-[var(--color-ink-muted)]">Open Source Projects</div>
-            </div>
-            <div className="text-center md:text-left">
               <div className="font-[var(--font-headline)] text-3xl text-[var(--color-accent-warm)]">
-                3
+                2
               </div>
               <div className="text-xs text-[var(--color-ink-muted)]">Year Duration</div>
             </div>
@@ -289,30 +268,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Research Questions */}
-            <div className="mt-10 pt-8 border-t border-[var(--color-border)]">
-              <h3 className="font-semibold text-[var(--color-ink)] text-sm uppercase tracking-wide mb-4">
-                Research Questions
-              </h3>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="flex items-start gap-3">
-                  <span className="font-[var(--font-mono)] text-xs text-[var(--color-accent-primary)] font-semibold mt-1">RQ1</span>
-                  <span className="text-[var(--color-ink-light)]">How does PerfStudio impact students' <strong>SPE awareness</strong>?</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="font-[var(--font-mono)] text-xs text-[var(--color-accent-coral)] font-semibold mt-1">RQ2</span>
-                  <span className="text-[var(--color-ink-light)]">How does PerfStudio affect perceived <strong>understanding of SPE concepts</strong>?</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="font-[var(--font-mono)] text-xs text-[var(--color-accent-purple)] font-semibold mt-1">RQ3</span>
-                  <span className="text-[var(--color-ink-light)]">How do students demonstrate <strong>competencies in SPE skills</strong>?</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="font-[var(--font-mono)] text-xs text-[var(--color-accent-teal)] font-semibold mt-1">RQ4</span>
-                  <span className="text-[var(--color-ink-light)]">How does PerfStudio affect students' <strong>self-efficacy</strong> in SPE learning?</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -392,100 +347,6 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* PBL Approach */}
-            <div className="bg-white border border-[var(--color-border)] p-6">
-              <h3 className="font-semibold text-[var(--color-ink)] mb-4">Problem-Based Learning Approach</h3>
-              <p className="text-sm text-[var(--color-ink-light)] mb-4">
-                PBL engages students in investigation of <span className="font-medium text-[var(--color-ink)]">authentic 
-                industry problems</span>. Students work as software quality analysts, exploring performance issues 
-                through real-world scenarios.
-              </p>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-[var(--color-accent-primary)]/10 rounded flex items-center justify-center flex-shrink-0">
-                    <span className="text-sm">🏥</span>
-                  </div>
-                  <div>
-                    <div className="font-medium text-[var(--color-ink)] text-sm">COVID Vaccine Scheduling</div>
-                    <div className="text-xs text-[var(--color-ink-muted)]">Performance requirements, modeling, bottleneck analysis</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-[var(--color-accent-coral)]/10 rounded flex items-center justify-center flex-shrink-0">
-                    <span className="text-sm">📊</span>
-                  </div>
-                  <div>
-                    <div className="font-medium text-[var(--color-ink)] text-sm">Apache Avro Analysis</div>
-                    <div className="text-xs text-[var(--color-ink-muted)]">50 curated issue tickets for ROI analysis</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-[var(--color-accent-purple)]/10 rounded flex items-center justify-center flex-shrink-0">
-                    <span className="text-sm">🎮</span>
-                  </div>
-                  <div>
-                    <div className="font-medium text-[var(--color-ink)] text-sm">Crowdsourced Testing Games</div>
-                    <div className="text-xs text-[var(--color-ink-muted)]">JMeter testing with virtual users</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Interactive ROI Steps */}
-            <div className="bg-white border border-[var(--color-border)] p-6">
-              <h3 className="font-semibold text-[var(--color-ink)] mb-4">
-                ROI Analysis Framework
-                <span className="ml-2 text-xs font-normal text-[var(--color-ink-muted)]">(Unit 4)</span>
-              </h3>
-              
-              {/* Step Indicators */}
-              <div className="flex gap-1 mb-4">
-                {roiSteps.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveStep(index)}
-                    className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${
-                      index === activeStep 
-                        ? 'bg-[var(--color-accent-coral)]' 
-                        : 'bg-[var(--color-border)]'
-                    }`}
-                  />
-                ))}
-              </div>
-
-              {/* Active Step */}
-              <div className="bg-[var(--color-paper)] p-4 mb-4 min-h-[120px]">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="w-6 h-6 rounded-full bg-[var(--color-accent-coral)] text-white flex items-center justify-center text-xs font-bold">
-                    {roiSteps[activeStep].step}
-                  </span>
-                  <span className="font-medium text-[var(--color-ink)]">{roiSteps[activeStep].title}</span>
-                </div>
-                <p className="text-sm text-[var(--color-ink-muted)] mb-2">{roiSteps[activeStep].description}</p>
-                <p className="text-xs font-[var(--font-mono)] text-[var(--color-ink-subtle)] italic">
-                  "{roiSteps[activeStep].example}"
-                </p>
-              </div>
-
-              {/* Step List */}
-              <div className="flex flex-wrap gap-2">
-                {roiSteps.map((step, index) => (
-                  <button
-                    key={step.step}
-                    onClick={() => setActiveStep(index)}
-                    className={`px-3 py-1 text-xs rounded transition-all ${
-                      index === activeStep 
-                        ? 'bg-[var(--color-accent-coral)] text-white' 
-                        : 'bg-[var(--color-paper)] text-[var(--color-ink-muted)] hover:bg-[var(--color-border)]'
-                    }`}
-                  >
-                    {step.step}. {step.title}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 

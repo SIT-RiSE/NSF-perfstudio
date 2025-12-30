@@ -253,7 +253,7 @@ export default function Course533() {
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-[var(--color-ink-muted)]">Level</dt>
-                    <dd className="text-[var(--color-ink)]">Graduate</dd>
+                    <dd className="text-[var(--color-ink)]">Undergraduate</dd>
                   </div>
                 </dl>
 
@@ -378,7 +378,7 @@ export default function Course533() {
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
             <div>
-              <p className="section-label mb-2">Hands-on Exercise</p>
+              <p className="section-label mb-2">Problem-Based Learning (PBL)</p>
               <h2 className="font-[var(--font-headline)] text-xl text-[var(--color-ink)]">
                 ROI Analysis Activity
               </h2>
