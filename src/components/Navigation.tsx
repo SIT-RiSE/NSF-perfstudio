@@ -1,9 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+
+const courseLinks = [
+  { name: 'SSW 315 — SPE Basics', path: '/courses/315', unit: 'Unit 1' },
+  { name: 'SSW 345 — Performance Modeling', path: '/courses/345', unit: 'Units 2-3' },
+  { name: 'SSW 533 — Data Collection', path: '/courses/533', unit: 'Unit 4' },
+  { name: 'SSW 567 — Performance Testing', path: '/courses/567', unit: 'Unit 5' },
+]
 
 const navLinks = [
   { name: 'Home', path: '/' },
-  { name: 'Curriculum Modules Developed', path: '/courses/533' },
   { name: 'Advisory Board', path: '/advisory-board' },
   { name: 'Team', path: '/team' },
   { name: 'Research Papers', path: '/papers' },
@@ -11,9 +17,13 @@ const navLinks = [
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [courseDropdownOpen, setCourseDropdownOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [readingProgress, setReadingProgress] = useState(0)
   const location = useLocation()
+  const dropdownRef = useRef<HTMLDivElement>(null)
+
+  const isCoursePage = location.pathname.startsWith('/courses/')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +39,18 @@ export default function Navigation() {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setCourseDropdownOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
   return (
@@ -64,7 +86,80 @@ export default function Navigation() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-10">
-              {navLinks.map((link) => (
+              {/* Home Link */}
+              <Link
+                to="/"
+                className={`relative text-sm font-medium tracking-wide transition-colors ${
+                  location.pathname === '/'
+                    ? 'text-[var(--color-ink)]'
+                    : 'text-[var(--color-ink-muted)] hover:text-[var(--color-ink)]'
+                }`}
+              >
+                Home
+                {location.pathname === '/' && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[var(--color-accent-primary)]" />
+                )}
+              </Link>
+
+              {/* Curriculum Dropdown */}
+              <div className="relative" ref={dropdownRef}>
+                <button
+                  onClick={() => setCourseDropdownOpen(!courseDropdownOpen)}
+                  className={`relative text-sm font-medium tracking-wide transition-colors flex items-center gap-1 ${
+                    isCoursePage
+                      ? 'text-[var(--color-ink)]'
+                      : 'text-[var(--color-ink-muted)] hover:text-[var(--color-ink)]'
+                  }`}
+                >
+                  Curriculum Modules
+                  <svg 
+                    className={`w-4 h-4 transition-transform ${courseDropdownOpen ? 'rotate-180' : ''}`} 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                  {isCoursePage && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[var(--color-accent-primary)]" />
+                  )}
+                </button>
+
+                {/* Dropdown Menu */}
+                {courseDropdownOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-[var(--color-border)] shadow-lg z-50">
+                    <div className="py-2">
+                      {courseLinks.map((course) => (
+                        <Link
+                          key={course.path}
+                          to={course.path}
+                          onClick={() => setCourseDropdownOpen(false)}
+                          className={`flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${
+                            location.pathname === course.path
+                              ? 'bg-[var(--color-paper)] text-[var(--color-ink)]'
+                              : 'text-[var(--color-ink-muted)] hover:bg-[var(--color-paper)] hover:text-[var(--color-ink)]'
+                          }`}
+                        >
+                          <span>{course.name}</span>
+                          <span className="text-xs text-[var(--color-ink-muted)]">{course.unit}</span>
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="border-t border-[var(--color-border)] px-4 py-2">
+                      <Link
+                        to="/resources"
+                        onClick={() => setCourseDropdownOpen(false)}
+                        className="text-xs text-[var(--color-accent-primary)] hover:underline"
+                      >
+                        View All Resources →
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Other Nav Links */}
+              {navLinks.slice(1).map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
@@ -115,7 +210,38 @@ export default function Navigation() {
           {/* Mobile Menu */}
           {isOpen && (
             <div className="md:hidden pt-6 pb-4 border-t border-[var(--color-border)] mt-4">
-              {navLinks.map((link) => (
+              <Link
+                to="/"
+                onClick={() => setIsOpen(false)}
+                className={`block py-3 text-lg font-[var(--font-headline)] transition-colors ${
+                  location.pathname === '/'
+                    ? 'text-[var(--color-ink)]'
+                    : 'text-[var(--color-ink-muted)]'
+                }`}
+              >
+                Home
+              </Link>
+              
+              {/* Mobile Course Links */}
+              <div className="py-3 border-b border-[var(--color-border)] mb-3">
+                <p className="text-xs uppercase tracking-wider text-[var(--color-ink-muted)] mb-2">Curriculum Modules</p>
+                {courseLinks.map((course) => (
+                  <Link
+                    key={course.path}
+                    to={course.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`block py-2 pl-4 text-base transition-colors ${
+                      location.pathname === course.path
+                        ? 'text-[var(--color-ink)]'
+                        : 'text-[var(--color-ink-muted)]'
+                    }`}
+                  >
+                    {course.name}
+                  </Link>
+                ))}
+              </div>
+
+              {navLinks.slice(1).map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
