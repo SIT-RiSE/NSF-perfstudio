@@ -314,7 +314,7 @@ export default function Home() {
                     </td>
                     <td className="py-3 px-4 text-[var(--color-ink-light)]">Performance bugs, Execution models</td>
                     <td className="py-3 px-4 text-[var(--color-ink-light)]">Apply Software & System Execution Models</td>
-                    <td className="py-3 px-4" rowSpan={2}><span className="bg-[var(--color-accent-teal)]/10 text-[var(--color-accent-teal)] px-1 text-xs font-medium">eFish'n'Sea Stress Testing</span></td>
+                    <td className="py-3 px-4"><span className="bg-[var(--color-accent-teal)]/10 text-[var(--color-accent-teal)] px-1 text-xs font-medium">eFish'n'Sea Stress Testing</span></td>
                   </tr>
                   <tr className="border-b border-[var(--color-border)]">
                     <td className="py-3 px-4">
@@ -323,6 +323,7 @@ export default function Home() {
                     </td>
                     <td className="py-3 px-4 text-[var(--color-ink-light)]">Stress testing, Loadster tool</td>
                     <td className="py-3 px-4 text-[var(--color-ink-light)]">Interpret system metrics; Identify bottleneck resources</td>
+                    <td className="py-3 px-4"><span className="bg-[var(--color-accent-teal)]/10 text-[var(--color-accent-teal)] px-1 text-xs font-medium">eFish'n'Sea Stress Testing</span></td>
                   </tr>
                   <tr className="border-b border-[var(--color-border)] bg-[var(--color-paper)]/50">
                     <td className="py-3 px-4">
