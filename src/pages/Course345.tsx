@@ -172,10 +172,6 @@ export default function Course345() {
                     <dd className="text-[var(--color-accent-teal)] font-medium">Units 2-3</dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-[var(--color-ink-muted)]">Instructor</dt>
-                    <dd className="text-[var(--color-ink)]">Dr. Lu Xiao</dd>
-                  </div>
-                  <div className="flex justify-between">
                     <dt className="text-[var(--color-ink-muted)]">Level</dt>
                     <dd className="text-[var(--color-ink)]">Undergraduate</dd>
                   </div>

@@ -172,10 +172,6 @@ export default function Course315() {
                     <dd className="text-[var(--color-accent-purple)] font-medium">Unit 1</dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-[var(--color-ink-muted)]">Instructor</dt>
-                    <dd className="text-[var(--color-ink)]">Dr. Eman Alomar</dd>
-                  </div>
-                  <div className="flex justify-between">
                     <dt className="text-[var(--color-ink-muted)]">Level</dt>
                     <dd className="text-[var(--color-ink)]">Undergraduate</dd>
                   </div>
