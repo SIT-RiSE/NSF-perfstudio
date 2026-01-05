@@ -181,7 +181,7 @@ export default function Home() {
             </div>
             <div className="text-center md:text-left">
               <div className="font-[var(--font-headline)] text-3xl text-[var(--color-accent-coral)]">
-                360+
+                200+
               </div>
               <div className="text-xs text-[var(--color-ink-muted)]">Student Participants</div>
             </div>
@@ -360,7 +360,7 @@ export default function Home() {
             </h2>
             <p className="text-[var(--color-ink-muted)] max-w-2xl">
               PerfStudio units are integrated into 4 undergraduate Software Engineering courses at Stevens, 
-              spanning junior and senior years with approximately 360 students over the project duration.
+              spanning junior and senior years with approximately 200 students over the project duration.
             </p>
           </div>
 
