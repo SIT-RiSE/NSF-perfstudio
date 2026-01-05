@@ -113,6 +113,7 @@ const scrollToSection = (sectionId: string) => {
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('')
+  const [hoveredCourse, setHoveredCourse] = useState<string | null>(null)
   const statsReveal = useScrollReveal()
   
   const courseCount = useAnimatedCounter(4, 1000, statsReveal.isVisible)
@@ -363,23 +364,51 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Implementation Timeline Visual */}
+          {/* Implementation Timeline Visual - Interactive */}
           <div className="mb-8 p-4 bg-white border border-[var(--color-border)]">
             <div className="flex items-center justify-between text-xs text-[var(--color-ink-muted)] mb-2">
               <span>Junior Year</span>
               <span>Senior Year</span>
             </div>
             <div className="flex gap-2">
-              <div className="flex-1 h-2 bg-[var(--color-accent-purple)]/30 rounded-l" title="SSW 315 - Fall"></div>
-              <div className="flex-1 h-2 bg-[var(--color-accent-teal)]/30" title="SSW 345 - Spring"></div>
-              <div className="flex-1 h-2 bg-[var(--color-accent-coral)]" title="SSW 533 - Fall (Active)"></div>
-              <div className="flex-1 h-2 bg-[var(--color-accent-primary)]/30 rounded-r" title="SSW 567 - Spring"></div>
+              <div 
+                className={`flex-1 h-2 rounded-l transition-all duration-300 ${
+                  hoveredCourse === '315' ? 'bg-[var(--color-accent-purple)] scale-y-150' : 'bg-[var(--color-accent-purple)]/30'
+                }`} 
+                title="SSW 315 - Fall"
+              />
+              <div 
+                className={`flex-1 h-2 transition-all duration-300 ${
+                  hoveredCourse === '345' ? 'bg-[var(--color-accent-teal)] scale-y-150' : 'bg-[var(--color-accent-teal)]/30'
+                }`} 
+                title="SSW 345 - Spring"
+              />
+              <div 
+                className={`flex-1 h-2 transition-all duration-300 ${
+                  hoveredCourse === '533' ? 'bg-[var(--color-accent-coral)] scale-y-150' : 'bg-[var(--color-accent-coral)]/30'
+                }`} 
+                title="SSW 533 - Fall"
+              />
+              <div 
+                className={`flex-1 h-2 rounded-r transition-all duration-300 ${
+                  hoveredCourse === '567' ? 'bg-[var(--color-accent-primary)] scale-y-150' : 'bg-[var(--color-accent-primary)]/30'
+                }`} 
+                title="SSW 567 - Spring"
+              />
             </div>
             <div className="flex justify-between text-xs mt-2">
-              <span className="text-[var(--color-accent-purple)]">Fall</span>
-              <span className="text-[var(--color-accent-teal)]">Spring</span>
-              <span className="text-[var(--color-accent-coral)] font-medium">Fall ●</span>
-              <span className="text-[var(--color-accent-primary)]">Spring</span>
+              <span className={`transition-all duration-300 ${hoveredCourse === '315' ? 'text-[var(--color-accent-purple)] font-semibold' : 'text-[var(--color-accent-purple)]/60'}`}>
+                {hoveredCourse === '315' ? '● ' : ''}Fall
+              </span>
+              <span className={`transition-all duration-300 ${hoveredCourse === '345' ? 'text-[var(--color-accent-teal)] font-semibold' : 'text-[var(--color-accent-teal)]/60'}`}>
+                {hoveredCourse === '345' ? '● ' : ''}Spring
+              </span>
+              <span className={`transition-all duration-300 ${hoveredCourse === '533' ? 'text-[var(--color-accent-coral)] font-semibold' : 'text-[var(--color-accent-coral)]/60'}`}>
+                {hoveredCourse === '533' ? '● ' : ''}Fall
+              </span>
+              <span className={`transition-all duration-300 ${hoveredCourse === '567' ? 'text-[var(--color-accent-primary)] font-semibold' : 'text-[var(--color-accent-primary)]/60'}`}>
+                {hoveredCourse === '567' ? '● ' : ''}Spring
+              </span>
             </div>
           </div>
 
@@ -398,6 +427,8 @@ export default function Home() {
                   borderLeftWidth: '4px',
                   borderLeftColor: course.color,
                 }}
+                onMouseEnter={() => setHoveredCourse(course.id)}
+                onMouseLeave={() => setHoveredCourse(null)}
               >
                 {course.status === 'active' && (
                   <Link to={`/courses/${course.id}`} className="absolute inset-0 z-10" />
