@@ -305,25 +305,24 @@ export default function Home() {
                     </td>
                     <td className="py-3 px-4 text-[var(--color-ink-light)]">SPE terminologies and methodologies</td>
                     <td className="py-3 px-4 text-[var(--color-ink-light)]">Understand basic SPE concepts; Common performance strategies</td>
-                    <td className="py-3 px-4"><span className="bg-[var(--color-highlight)] px-1 text-xs">COVID Vaccine Scheduling</span></td>
+                    <td className="py-3 px-4"><span className="bg-[var(--color-accent-purple)]/10 text-[var(--color-accent-purple)] px-1 text-xs font-medium">DWT Pharmacy System</span></td>
                   </tr>
                   <tr className="border-b border-[var(--color-border)] bg-[var(--color-paper)]/50">
                     <td className="py-3 px-4">
                       <span className="font-semibold text-[var(--color-accent-teal)]">Unit 2</span><br/>
                       <span className="text-xs text-[var(--color-ink-muted)]">Performance Modeling</span>
                     </td>
-                    <td className="py-3 px-4 text-[var(--color-ink-light)]">NodeJS architecture, Execution Graph, Performance Metrics</td>
+                    <td className="py-3 px-4 text-[var(--color-ink-light)]">Performance bugs, Execution models</td>
                     <td className="py-3 px-4 text-[var(--color-ink-light)]">Apply Software & System Execution Models</td>
-                    <td className="py-3 px-4"><span className="bg-[var(--color-highlight)] px-1 text-xs">COVID Vaccine Scheduling</span></td>
+                    <td className="py-3 px-4" rowSpan={2}><span className="bg-[var(--color-accent-teal)]/10 text-[var(--color-accent-teal)] px-1 text-xs font-medium">eFish'n'Sea Stress Testing</span></td>
                   </tr>
                   <tr className="border-b border-[var(--color-border)]">
                     <td className="py-3 px-4">
-                      <span className="font-semibold text-[var(--color-accent-primary)]">Unit 3</span><br/>
+                      <span className="font-semibold text-[var(--color-accent-teal)]">Unit 3</span><br/>
                       <span className="text-xs text-[var(--color-ink-muted)]">Bottleneck Analysis</span>
                     </td>
-                    <td className="py-3 px-4 text-[var(--color-ink-light)]">Basic Queueing Theory</td>
+                    <td className="py-3 px-4 text-[var(--color-ink-light)]">Stress testing, Loadster tool</td>
                     <td className="py-3 px-4 text-[var(--color-ink-light)]">Interpret system metrics; Identify bottleneck resources</td>
-                    <td className="py-3 px-4"><span className="bg-[var(--color-highlight)] px-1 text-xs">COVID Vaccine Scheduling</span></td>
                   </tr>
                   <tr className="border-b border-[var(--color-border)] bg-[var(--color-paper)]/50">
                     <td className="py-3 px-4">
@@ -332,7 +331,7 @@ export default function Home() {
                     </td>
                     <td className="py-3 px-4 text-[var(--color-ink-light)]">Statistics, data analytics, hypothesis testing</td>
                     <td className="py-3 px-4 text-[var(--color-ink-light)]">Apply techniques & tools for SPE data collection</td>
-                    <td className="py-3 px-4"><span className="bg-[var(--color-accent-coral)]/10 text-[var(--color-accent-coral)] px-1 text-xs font-medium">Apache Avro ROI Analysis</span></td>
+                    <td className="py-3 px-4"><span className="bg-[var(--color-accent-coral)]/10 text-[var(--color-accent-coral)] px-1 text-xs font-medium">Apache OSS ROI Analysis</span></td>
                   </tr>
                   <tr>
                     <td className="py-3 px-4">
@@ -341,7 +340,7 @@ export default function Home() {
                     </td>
                     <td className="py-3 px-4 text-[var(--color-ink-light)]">Test planning, resource & response time measurement</td>
                     <td className="py-3 px-4 text-[var(--color-ink-light)]">Performance test cases; Apply measurement tools</td>
-                    <td className="py-3 px-4"><span className="bg-[var(--color-highlight)] px-1 text-xs">Crowdsourced Testing Games</span></td>
+                    <td className="py-3 px-4"><span className="bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-1 text-xs font-medium">MRTD System Testing</span></td>
                   </tr>
                 </tbody>
               </table>
