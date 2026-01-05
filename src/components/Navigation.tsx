@@ -135,14 +135,13 @@ export default function Navigation() {
                           key={course.path}
                           to={course.path}
                           onClick={() => setCourseDropdownOpen(false)}
-                          className={`flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${
+                          className={`block px-4 py-2.5 text-sm transition-colors ${
                             location.pathname === course.path
                               ? 'bg-[var(--color-paper)] text-[var(--color-ink)]'
                               : 'text-[var(--color-ink-muted)] hover:bg-[var(--color-paper)] hover:text-[var(--color-ink)]'
                           }`}
                         >
-                          <span>{course.name}</span>
-                          <span className="text-xs text-[var(--color-ink-muted)]">{course.unit}</span>
+                          {course.name}
                         </Link>
                       ))}
                     </div>
