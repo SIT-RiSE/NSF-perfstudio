@@ -13,6 +13,7 @@ const navLinks = [
   { name: 'Advisory Board', path: '/advisory-board' },
   { name: 'Team', path: '/team' },
   { name: 'Research Papers', path: '/papers' },
+  { name: 'Download', path: '/resources' },
 ]
 
 export default function Navigation() {
