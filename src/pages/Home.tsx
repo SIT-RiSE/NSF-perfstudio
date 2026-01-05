@@ -187,7 +187,7 @@ export default function Home() {
             </div>
             <div className="text-center md:text-left">
               <div className="font-[var(--font-headline)] text-3xl text-[var(--color-accent-warm)]">
-                2
+                3
               </div>
               <div className="text-xs text-[var(--color-ink-muted)]">Year Duration</div>
             </div>
