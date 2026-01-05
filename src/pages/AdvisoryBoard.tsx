@@ -64,7 +64,7 @@ export default function AdvisoryBoard() {
       <section className="py-12">
         <div className="container-wide">
           <div className="space-y-6">
-            {advisoryMembers.map((member, index) => (
+            {advisoryMembers.map((member) => (
               <div 
                 key={member.name}
                 className="border border-[var(--color-border)] bg-white p-6 hover:shadow-md transition-shadow"
