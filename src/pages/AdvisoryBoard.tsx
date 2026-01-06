@@ -19,14 +19,14 @@ const advisoryMembers = [
     name: 'Alexander Podelko',
     title: 'Staff Performance Engineer',
     affiliation: 'MongoDB & Director, Computer Measurement Group',
-    bio: 'His expertise in performance testing, architecting, and optimization of the MongoDB server will contribute inputs for systematic considerations for performance-related topics.',
+    bio: 'His expertise in performance testing, architecting, and optimization of the MongoDB server contributes inputs for systematic considerations for performance-related topics.',
     expertise: 'Performance Testing & Optimization',
   },
   {
     name: 'Igor Trubin, Ph.D.',
     title: 'IT Manager',
     affiliation: 'Capital One Bank & Director, Computer Measurement Group',
-    bio: 'Expert in Robotics/AI. His expertise related to performance anomaly and changes detection will strengthen program materials and approaches.',
+    bio: 'Expert in Robotics/AI. His expertise related to performance anomaly and changes detection strengthens program materials and approaches.',
     expertise: 'Performance Anomaly Detection',
   },
   {
@@ -35,6 +35,27 @@ const advisoryMembers = [
     affiliation: 'Stevens Institute of Technology',
     bio: 'Prior to this role he served as executive director of the Cloud Platforms Research Department at AT&T Labs Research. He contributes expertise related to connections between software engineering undergraduate curriculum and other interfacing curricula at Stevens.',
     expertise: 'Curriculum Integration',
+  },
+  {
+    name: 'Ye Yang, Ph.D.',
+    title: 'Software Development Manager',
+    affiliation: 'Amazon',
+    bio: 'Previously Associate Professor at Stevens Institute of Technology and ISCAS. Her work sits at the intersection of empirical software engineering and data-driven decision making, with research spanning software cost estimation, defect prediction, and human-centered software engineering. Received ACM Distinguished Paper Awards at ICSE 2019 and ICSE 2020.',
+    expertise: 'Empirical Software Engineering',
+  },
+  {
+    name: 'Yutong Zhao, Ph.D.',
+    title: 'Assistant Professor',
+    affiliation: 'Computer Engineering & Computer Science, California State University Long Beach',
+    bio: 'His research sits at the intersection of software engineering and performance engineering, spanning software performance analysis, software architecture, and AI techniques applied to software artifacts. Received NSF CRII award (2025) for LLM-empowered software performance issue testing, localization, and optimization. Published in TSE, ICSE, ASE, ESEC/FSE, and ISSTA.',
+    expertise: 'Performance Engineering & AI',
+  },
+  {
+    name: 'Qi Wang',
+    title: 'NPI Operations Program Manager',
+    affiliation: 'Google',
+    bio: 'Graduate of University of Wisconsin–Madison. Holds PMP® credential from PMI and APICS CPIM certification from ASCM. Works at the interface of product development and operational execution, driving disciplined launch readiness and smoother transitions into production by aligning cross-functional stakeholders around quality, cost, and capacity considerations.',
+    expertise: 'Operations & Program Management',
   },
 ]
 

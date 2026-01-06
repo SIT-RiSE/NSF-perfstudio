@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const teamMembers = [
+const principalInvestigators = [
   {
     name: 'Dr. Lu Xiao',
     role: 'Principal Investigator',
@@ -11,20 +11,58 @@ const teamMembers = [
     initials: 'LX',
   },
   {
-    name: 'Dr. Yutong Zhao',
-    role: 'Research Team Member',
-    affiliation: 'California State University Long Beach',
-    department: 'Software Engineering',
-    bio: 'Contributing to ROI analysis methodology and course material development.',
-    initials: 'YZ',
+    name: 'Dr. Eman Alomar',
+    role: 'Co-PI',
+    affiliation: 'Stevens Institute of Technology',
+    department: 'School of Systems and Enterprises',
+    bio: 'Assistant Professor whose research focuses on software quality, refactoring, maintenance and evolution, and technical debt. Received Best Paper Awards at IWoR 2019, MSR 2022, MSR 2024, SIGCSE 2024, and ICPC 2025, and the Jess H. Davis Memorial Award for Research Excellence at Stevens 2024.',
+    initials: 'EA',
   },
   {
+    name: 'Dr. Ye Yang',
+    role: 'Original Project PI',
+    affiliation: 'Amazon (formerly Stevens Institute of Technology)',
+    department: 'Software Development',
+    bio: 'Software Development Manager at Amazon. Previously Associate Professor at Stevens and ISCAS. Her research spans empirical software engineering and data-driven decision making, including software cost estimation, defect prediction, and human-centered software engineering. Received ACM Distinguished Paper Awards at ICSE 2019 and ICSE 2020.',
+    initials: 'YY',
+  },
+]
+
+const seniorPersonnel = [
+  {
+    name: 'Dr. André B. Bondi',
+    role: 'Senior Personnel, Consultant',
+    affiliation: 'Stevens Institute of Technology',
+    department: 'Adjunct Professor of Software Engineering',
+    bio: 'Expert in software and systems performance engineering with decades of experience. Author of "Foundations of Software and System Performance Engineering" (Addison-Wesley, 2014). Received the Computer Measurement Group\'s A. A. Michelson Award (2016). Former Senior Staff Engineer at Siemens and researcher at AT&T Labs/Bell Labs.',
+    initials: 'AB',
+  },
+  {
+    name: 'Dr. Yu Tao',
+    role: 'External Evaluator',
+    affiliation: 'Stevens Institute of Technology',
+    department: 'School of Systems and Enterprises',
+    bio: 'Researcher focusing on STEM education and workforce outcomes, examining group differences due to gender, race/ethnicity, and immigration status. Co-PI of NSF grants on STEM education and online privacy. Co-edited volume on African Americans in engineering (Johns Hopkins University Press, 2015).',
+    initials: 'YT',
+  },
+]
+
+const researchAssistants = [
+  {
     name: 'Dr. Chenhao Wei',
-    role: 'Research Team Member',
+    role: 'Graduate Research Assistant',
     affiliation: 'Stevens Institute of Technology',
     department: 'Software Engineering',
-    bio: 'Supporting the development and deployment of educational materials and tools.',
+    bio: 'Software engineering researcher who defended his Ph.D. at Stevens. Research focuses on unit testing and developer automation, including the Arrange–Act–Assert structure in test suites. Published in IEEE TSE, and developed SAG (Setup AGent), an LLM-based agent for Java project configuration (ICSE 2026 NIER).',
     initials: 'CW',
+  },
+  {
+    name: 'Dr. Gengwu Zhao',
+    role: 'Graduate Research Assistant',
+    affiliation: 'Stevens Institute of Technology',
+    department: 'Software Engineering',
+    bio: 'Software engineering researcher focusing on software testing and empirical software engineering through large-scale project analyses. Co-authored work on mocking frameworks in Apache projects (Empirical Software Engineering) and contributed to research at venues including ICSE.',
+    initials: 'GZ',
   },
 ]
 
@@ -50,28 +88,28 @@ export default function Team() {
         </div>
       </section>
 
-      {/* Team Members */}
+      {/* Principal Investigators */}
       <section className="py-12">
         <div className="container-wide">
-          <div className="space-y-8">
-            {teamMembers.map((member) => (
+          <h2 className="font-[var(--font-headline)] text-xl text-[var(--color-ink)] mb-6">
+            Principal Investigators
+          </h2>
+          <div className="space-y-6">
+            {principalInvestigators.map((member) => (
               <div 
                 key={member.name}
                 className="border border-[var(--color-border)] bg-white p-6"
               >
                 <div className="flex items-start gap-6">
-                  {/* Avatar */}
-                  <div className="w-20 h-20 bg-[var(--color-ink)] rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="font-[var(--font-headline)] text-2xl text-white">
+                  <div className="w-16 h-16 bg-[var(--color-ink)] rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="font-[var(--font-headline)] text-xl text-white">
                       {member.initials}
                     </span>
                   </div>
-
-                  {/* Info */}
                   <div className="flex-1">
-                    <h2 className="font-[var(--font-headline)] text-xl text-[var(--color-ink)]">
+                    <h3 className="font-[var(--font-headline)] text-lg text-[var(--color-ink)]">
                       {member.name}
-                    </h2>
+                    </h3>
                     <p className="text-[var(--color-accent-primary)] text-sm font-medium">
                       {member.role}
                     </p>
@@ -81,7 +119,6 @@ export default function Team() {
                     <p className="text-[var(--color-ink-light)] text-sm mt-3">
                       {member.bio}
                     </p>
-                    
                     {member.email && (
                       <a
                         href={`mailto:${member.email}`}
@@ -93,6 +130,84 @@ export default function Team() {
                         {member.email}
                       </a>
                     )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Senior Personnel */}
+      <section className="py-12 bg-[var(--color-paper)]">
+        <div className="container-wide">
+          <h2 className="font-[var(--font-headline)] text-xl text-[var(--color-ink)] mb-6">
+            Senior Personnel
+          </h2>
+          <div className="space-y-6">
+            {seniorPersonnel.map((member) => (
+              <div 
+                key={member.name}
+                className="border border-[var(--color-border)] bg-white p-6"
+              >
+                <div className="flex items-start gap-6">
+                  <div className="w-16 h-16 bg-[var(--color-accent-primary)] rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="font-[var(--font-headline)] text-xl text-white">
+                      {member.initials}
+                    </span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-[var(--font-headline)] text-lg text-[var(--color-ink)]">
+                      {member.name}
+                    </h3>
+                    <p className="text-[var(--color-accent-primary)] text-sm font-medium">
+                      {member.role}
+                    </p>
+                    <p className="text-[var(--color-ink-muted)] text-sm mt-1">
+                      {member.department}, {member.affiliation}
+                    </p>
+                    <p className="text-[var(--color-ink-light)] text-sm mt-3">
+                      {member.bio}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Research Assistants */}
+      <section className="py-12">
+        <div className="container-wide">
+          <h2 className="font-[var(--font-headline)] text-xl text-[var(--color-ink)] mb-6">
+            Research Assistants
+          </h2>
+          <div className="space-y-6">
+            {researchAssistants.map((member) => (
+              <div 
+                key={member.name}
+                className="border border-[var(--color-border)] bg-white p-6"
+              >
+                <div className="flex items-start gap-6">
+                  <div className="w-16 h-16 bg-[var(--color-ink-muted)] rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="font-[var(--font-headline)] text-xl text-white">
+                      {member.initials}
+                    </span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-[var(--font-headline)] text-lg text-[var(--color-ink)]">
+                      {member.name}
+                    </h3>
+                    <p className="text-[var(--color-accent-primary)] text-sm font-medium">
+                      {member.role}
+                    </p>
+                    <p className="text-[var(--color-ink-muted)] text-sm mt-1">
+                      {member.department}, {member.affiliation}
+                    </p>
+                    <p className="text-[var(--color-ink-light)] text-sm mt-3">
+                      {member.bio}
+                    </p>
                   </div>
                 </div>
               </div>
