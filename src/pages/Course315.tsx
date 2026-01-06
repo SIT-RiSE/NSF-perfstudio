@@ -329,31 +329,42 @@ export default function Course315() {
             {/* Right: Deliverables */}
             <div className="flex flex-col">
               <h3 className="font-semibold text-[var(--color-ink)] mb-4">Deliverables</h3>
-              <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-4 flex-1">
+              <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-4">
                 <p className="text-xs text-[var(--color-ink-muted)] mb-3">
                   Submit your analysis including:
                 </p>
                 <ol className="space-y-2.5 text-xs">
                   <li className="flex gap-2">
                     <span className="text-[var(--color-accent-purple)] font-mono font-bold">1.</span>
-                    <span className="text-[var(--color-ink)]">SPE process description <span className="text-[var(--color-ink-muted)]">(based on system requirements)</span></span>
+                    <span className="text-[var(--color-ink)]">SPE process description <span className="text-[var(--color-ink-muted)]">(without model-based evaluation)</span></span>
                   </li>
                   <li className="flex gap-2">
                     <span className="text-[var(--color-accent-purple)] font-mono font-bold">2.</span>
-                    <span className="text-[var(--color-ink)]">I/O API comparison results <span className="text-[var(--color-ink-muted)]">(timing, resource data)</span></span>
+                    <span className="text-[var(--color-ink)]">I/O API comparison <span className="text-[var(--color-ink-muted)]">(timing charts as records increase)</span></span>
                   </li>
                   <li className="flex gap-2">
                     <span className="text-[var(--color-accent-purple)] font-mono font-bold">3.</span>
-                    <span className="text-[var(--color-ink)]">Inheritance vs. composition analysis <span className="text-[var(--color-ink-muted)]">(code + metrics)</span></span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-[var(--color-accent-purple)] font-mono font-bold">4.</span>
-                    <span className="text-[var(--color-ink)]">Observation diagrams <span className="text-[var(--color-ink-muted)]">(performance visualizations)</span></span>
+                    <span className="text-[var(--color-ink)]">Inheritance vs. composition <span className="text-[var(--color-ink-muted)]">(code + execution time diagrams)</span></span>
                   </li>
                 </ol>
-                <div className="mt-4 pt-3 border-t border-[var(--color-border)]">
+              </div>
+
+              {/* Data Files */}
+              <div className="mt-4 bg-white border border-[var(--color-border)] p-4">
+                <p className="text-xs font-semibold text-[var(--color-ink)] uppercase tracking-wide mb-3">Test Data Files</p>
+                <ul className="space-y-2 text-xs">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-purple)]">📄</span>
+                    <span className="text-[var(--color-ink-muted)]">patients.csv (10 million patient records)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-purple)]">📄</span>
+                    <span className="text-[var(--color-ink-muted)]">vaccination-history.csv (290 million lines)</span>
+                  </li>
+                </ul>
+                <div className="mt-3 pt-3 border-t border-[var(--color-border)]">
                   <p className="text-xs text-[var(--color-ink-subtle)]">
-                    💡 Focus on clear documentation and measurable performance comparisons.
+                    💡 Load files in chunks (e.g., 1M at a time) to avoid out-of-memory errors.
                   </p>
                 </div>
               </div>
