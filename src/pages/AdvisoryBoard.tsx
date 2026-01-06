@@ -2,6 +2,13 @@ import { Link } from 'react-router-dom'
 
 const advisoryMembers = [
   {
+    name: 'Alexander Podelko',
+    title: 'Staff Performance Engineer',
+    affiliation: 'MongoDB & Director, Computer Measurement Group',
+    bio: 'His expertise in performance testing, architecting, and optimization of the MongoDB server contributes inputs for systematic considerations for performance-related topics.',
+    expertise: 'Performance Testing & Optimization',
+  },
+  {
     name: 'Connie Smith, Ph.D.',
     title: 'Principal Consultant',
     affiliation: 'Performance Engineering Services Division, L&S Computer Technology, Inc.',
@@ -9,18 +16,11 @@ const advisoryMembers = [
     expertise: 'Software Performance Engineering',
   },
   {
-    name: 'Kishor Trivedi, Ph.D.',
-    title: 'Fitzgerald Hudson Chair',
-    affiliation: 'Department of Electrical and Computer Engineering, Duke University',
-    bio: 'Known as a leading international expert in the domain of reliability and performability evaluation of Dependable systems.',
-    expertise: 'Reliability & Performability',
-  },
-  {
-    name: 'Alexander Podelko',
-    title: 'Staff Performance Engineer',
-    affiliation: 'MongoDB & Director, Computer Measurement Group',
-    bio: 'His expertise in performance testing, architecting, and optimization of the MongoDB server contributes inputs for systematic considerations for performance-related topics.',
-    expertise: 'Performance Testing & Optimization',
+    name: 'Gregg Vesonder, Ph.D.',
+    title: 'Director of Software Engineering Program',
+    affiliation: 'Stevens Institute of Technology',
+    bio: 'Prior to this role he served as executive director of the Cloud Platforms Research Department at AT&T Labs Research. He contributes expertise related to connections between software engineering undergraduate curriculum and other interfacing curricula at Stevens.',
+    expertise: 'Curriculum Integration',
   },
   {
     name: 'Igor Trubin, Ph.D.',
@@ -30,11 +30,18 @@ const advisoryMembers = [
     expertise: 'Performance Anomaly Detection',
   },
   {
-    name: 'Gregg Vesonder, Ph.D.',
-    title: 'Director of Software Engineering Program',
-    affiliation: 'Stevens Institute of Technology',
-    bio: 'Prior to this role he served as executive director of the Cloud Platforms Research Department at AT&T Labs Research. He contributes expertise related to connections between software engineering undergraduate curriculum and other interfacing curricula at Stevens.',
-    expertise: 'Curriculum Integration',
+    name: 'Kishor Trivedi, Ph.D.',
+    title: 'Fitzgerald Hudson Chair',
+    affiliation: 'Department of Electrical and Computer Engineering, Duke University',
+    bio: 'Known as a leading international expert in the domain of reliability and performability evaluation of Dependable systems.',
+    expertise: 'Reliability & Performability',
+  },
+  {
+    name: 'Qi Wang',
+    title: 'NPI Operations Program Manager',
+    affiliation: 'Google',
+    bio: 'Graduate of University of Wisconsin–Madison. Holds PMP® credential from PMI and APICS CPIM certification from ASCM. Works at the interface of product development and operational execution, driving disciplined launch readiness and smoother transitions into production by aligning cross-functional stakeholders around quality, cost, and capacity considerations.',
+    expertise: 'Operations & Program Management',
   },
   {
     name: 'Ye Yang, Ph.D.',
@@ -49,13 +56,6 @@ const advisoryMembers = [
     affiliation: 'Computer Engineering & Computer Science, California State University Long Beach',
     bio: 'His research sits at the intersection of software engineering and performance engineering, spanning software performance analysis, software architecture, and AI techniques applied to software artifacts. Received NSF CRII award (2025) for LLM-empowered software performance issue testing, localization, and optimization. Published in TSE, ICSE, ASE, ESEC/FSE, and ISSTA.',
     expertise: 'Performance Engineering & AI',
-  },
-  {
-    name: 'Qi Wang',
-    title: 'NPI Operations Program Manager',
-    affiliation: 'Google',
-    bio: 'Graduate of University of Wisconsin–Madison. Holds PMP® credential from PMI and APICS CPIM certification from ASCM. Works at the interface of product development and operational execution, driving disciplined launch readiness and smoother transitions into production by aligning cross-functional stakeholders around quality, cost, and capacity considerations.',
-    expertise: 'Operations & Program Management',
   },
 ]
 
