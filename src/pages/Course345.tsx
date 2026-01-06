@@ -84,7 +84,7 @@ export default function Course345() {
               <div className="mt-8 bg-[var(--color-paper)] border border-[var(--color-border)] p-6">
                 <div className="flex items-start justify-between gap-4 mb-4">
                   <div>
-                    <p className="text-xs text-[var(--color-accent-teal)] font-semibold uppercase tracking-wider mb-1">Lecture</p>
+                    <p className="text-xs text-[var(--color-accent-teal)] font-semibold uppercase tracking-wider mb-1">Guest Lecture</p>
                     <h3 className="font-[var(--font-headline)] text-lg text-[var(--color-ink)]">
                       Software Performance & Stress Testing
                     </h3>
