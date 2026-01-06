@@ -324,19 +324,11 @@ export default function Course345() {
                 </li>
               </ul>
 
-              <div className="mt-6 pt-4 border-t border-[var(--color-border)]">
-                <h4 className="font-medium text-[var(--color-ink)] text-sm mb-2">After Completion</h4>
-                <p className="text-sm text-[var(--color-ink-muted)] mb-2">
-                  Take the exit survey to share your feedback.
+              <div className="mt-auto pt-4 p-3 bg-white border border-[var(--color-border)]">
+                <p className="text-xs font-semibold text-[var(--color-ink)] mb-1">After Completion</p>
+                <p className="text-xs text-[var(--color-ink-muted)]">
+                  Take the exit survey to share your feedback and help improve future course materials.
                 </p>
-                <a 
-                  href="https://stevenshowe.co1.qualtrics.com/jfe/form/SV_24yCXX12pmhSKoe" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm text-[var(--color-accent-teal)] hover:underline"
-                >
-                  Take Exit Survey →
-                </a>
               </div>
             </div>
           </div>
