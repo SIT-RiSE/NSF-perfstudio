@@ -347,23 +347,23 @@ export default function Course567() {
                 </p>
                 <ol className="space-y-2.5 text-xs">
                   <li className="flex gap-2">
-                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">P0.</span>
+                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">1.</span>
                     <span className="text-[var(--color-ink)]">Gantt chart <span className="text-[var(--color-ink-muted)]">(initial + final with actual completion)</span></span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">P1.</span>
+                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">2.</span>
                     <span className="text-[var(--color-ink)]">PDF report <span className="text-[var(--color-ink-muted)]">(ambiguities + clarifications per spec)</span></span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">P2.</span>
+                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">3.</span>
                     <span className="text-[var(--color-ink)]">Code repo <span className="text-[var(--color-ink-muted)]">(MRTD.py, MRTDtest.py, coverage &gt;80%)</span></span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">P3.</span>
+                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">4.</span>
                     <span className="text-[var(--color-ink)]">Performance report <span className="text-[var(--color-ink-muted)]">(charts, CSV data, analysis)</span></span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">P4.</span>
+                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">5.</span>
                     <span className="text-[var(--color-ink)]">Test plan <span className="text-[var(--color-ink-muted)]">(3-5 pages: strategy, scope, schedule)</span></span>
                   </li>
                 </ol>
