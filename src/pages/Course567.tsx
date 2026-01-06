@@ -369,16 +369,27 @@ export default function Course567() {
                 </ol>
               </div>
 
-              {/* Project Context */}
+              {/* Key Resources */}
               <div className="mt-4 bg-white border border-[var(--color-border)] p-4">
-                <p className="text-xs font-semibold text-[var(--color-ink)] uppercase tracking-wide mb-2">Project Context</p>
-                <p className="text-xs text-[var(--color-ink-muted)] mb-3">
-                  Machine-Readable Travel Documents (MRTD) contain two OCR lines with passport information 
-                  and check digits. Your system will decode, validate, and encode these records.
-                </p>
-                <div className="bg-[var(--color-paper)] p-2 rounded font-mono text-[10px] text-[var(--color-ink-muted)]">
-                  <div>P&lt;UTOERIKSSON&lt;&lt;ANNA&lt;MARIA&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</div>
-                  <div>L898902C36UTO7408122F1204159ZE184226B&lt;&lt;&lt;1</div>
+                <p className="text-xs font-semibold text-[var(--color-ink)] uppercase tracking-wide mb-3">Key Resources</p>
+                <ul className="space-y-2 text-xs">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-warm)]">📄</span>
+                    <span className="text-[var(--color-ink-muted)]">ICAO 9303 Standard Document (passport specifications)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-warm)]">📊</span>
+                    <span className="text-[var(--color-ink-muted)]">Test data files (10,000 encoded/decoded records)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-warm)]">📝</span>
+                    <span className="text-[var(--color-ink-muted)]">MutPy installation guide for Python 3.7</span>
+                  </li>
+                </ul>
+                <div className="mt-3 pt-3 border-t border-[var(--color-border)]">
+                  <p className="text-xs text-[var(--color-ink-subtle)]">
+                    💡 All resources available on Canvas under Final Project module.
+                  </p>
                 </div>
               </div>
 
