@@ -28,7 +28,7 @@ export default function Course345() {
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <p className="font-[var(--font-mono)] text-sm text-[var(--color-accent-teal)]">
-                  SSW 345 — Model-Based Software Engineering
+                  SSW 345 — Modeling and Simulation
                 </p>
                 <span className="text-xs bg-[var(--color-accent-teal)]/10 text-[var(--color-accent-teal)] px-2 py-0.5 rounded">
                   SPE Units 2-3
@@ -191,7 +191,7 @@ export default function Course345() {
                 <div className="border-t border-[var(--color-border)] pt-4 space-y-2">
                   <a href="./materials/345/SSW345-lecture.pptx" download className="flex items-center gap-2 text-sm text-[var(--color-accent-primary)] hover:underline">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-                    Lecture Slides
+                    Guest Lecture Slides
                   </a>
                   <a href="./materials/345/SSW345-assignment.docx" download className="flex items-center gap-2 text-sm text-[var(--color-accent-primary)] hover:underline">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
@@ -234,7 +234,7 @@ export default function Course345() {
             <div className="flex flex-wrap gap-4 text-sm">
               <a href="./materials/345/SSW345-lecture.pptx" download className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-[var(--color-border)] hover:border-[var(--color-accent-primary)] transition-colors">
                 <span className="w-2 h-2 bg-[var(--color-accent-coral)] rounded-full"></span>
-                Lecture Slides
+                Guest Lecture Slides
               </a>
               <a href="./materials/345/SSW345-assignment.docx" download className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-[var(--color-border)] hover:border-[var(--color-accent-primary)] transition-colors">
                 <span className="w-2 h-2 bg-[var(--color-accent-teal)] rounded-full"></span>

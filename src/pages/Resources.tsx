@@ -16,7 +16,7 @@ const resourceCategories = [
     description: 'Units 2-3 materials covering performance bugs, stress testing with Loadster, and eFish\'n\'Sea game.',
     status: 'available',
     materials: [
-      { name: 'Lecture Slides', type: 'PPTX', path: './materials/345/SSW345-lecture.pptx', size: '~5 MB' },
+      { name: 'Guest Lecture Slides', type: 'PPTX', path: './materials/345/SSW345-lecture.pptx', size: '~5 MB' },
       { name: 'PBL Activity Document', type: 'DOCX', path: './materials/345/SSW345-assignment.docx', size: '~300 KB' },
     ],
     surveyLink: 'https://stevenshowe.co1.qualtrics.com/jfe/form/SV_24yCXX12pmhSKoe',

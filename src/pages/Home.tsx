@@ -6,7 +6,7 @@ const courses = [
   {
     id: '315',
     code: 'SSW 315',
-    title: 'Object-Oriented Programming',
+    title: 'Software Performance for Object-Oriented Design',
     year: 'Junior • Fall',
     unit: 'Unit 1: SPE Basics',
     topics: 'SPE terminologies and methodologies',
@@ -18,7 +18,7 @@ const courses = [
   {
     id: '345',
     code: 'SSW 345',
-    title: 'Model-Based Software Engineering',
+    title: 'Modeling and Simulation',
     year: 'Junior • Spring',
     unit: 'Units 2-3: Performance Modeling & Bottleneck Analysis',
     topics: 'Performance bugs, Stress testing, eFish\'n\'Sea game',
@@ -42,7 +42,7 @@ const courses = [
   {
     id: '567',
     code: 'SSW 567',
-    title: 'Software Testing',
+    title: 'Software Testing, Quality, and Maintenance',
     year: 'Senior • Spring',
     unit: 'Unit 5: Performance Testing',
     topics: 'Performance testing, reliability testing, test planning',

@@ -28,7 +28,7 @@ export default function Course567() {
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <p className="font-[var(--font-mono)] text-sm text-[var(--color-accent-warm)]">
-                  SSW 567 — Software Testing, QA & Maintenance
+                  SSW 567 — Software Testing, Quality, and Maintenance
                 </p>
                 <span className="text-xs bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-2 py-0.5 rounded">
                   SPE Unit 5

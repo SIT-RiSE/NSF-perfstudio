@@ -28,7 +28,7 @@ export default function Course315() {
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <p className="font-[var(--font-mono)] text-sm text-[var(--color-accent-purple)]">
-                  SSW 315 — Object-Oriented Programming
+                  SSW 315 — Software Performance for Object-Oriented Design
                 </p>
                 <span className="text-xs bg-[var(--color-accent-purple)]/10 text-[var(--color-accent-purple)] px-2 py-0.5 rounded">
                   SPE Unit 1
