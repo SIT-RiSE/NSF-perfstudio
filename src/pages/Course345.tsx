@@ -395,25 +395,6 @@ export default function Course345() {
                 </div>
               </div>
 
-              {/* Resources */}
-              <div className="mt-4 bg-white border border-[var(--color-border)] p-4">
-                <p className="text-xs font-semibold text-[var(--color-ink)] uppercase tracking-wide mb-2">Resources</p>
-                <ul className="space-y-1.5 text-xs text-[var(--color-ink-muted)]">
-                  <li className="flex items-center gap-2">
-                    <span className="text-[var(--color-accent-teal)]">→</span>
-                    <a href="https://loadster.app/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-accent-teal)] transition-colors">Loadster.app</a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-[var(--color-accent-teal)]">→</span>
-                    <a href="https://github.com/gzhao9/Tutorial-on-stress-testing" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-accent-teal)] transition-colors">GitHub Tutorial (step-by-step guide)</a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-[var(--color-accent-teal)]">→</span>
-                    <a href="https://efish-n-sea.github.io/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-accent-teal)] transition-colors">eFish'nSea Game</a>
-                  </li>
-                </ul>
-              </div>
-
               {/* After Completion */}
               <div className="mt-4 p-3 bg-white border border-[var(--color-border)]">
                 <p className="text-xs font-semibold text-[var(--color-ink)] mb-1">After Completion</p>
