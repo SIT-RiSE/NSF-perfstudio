@@ -87,7 +87,6 @@ export default function Course567() {
                     <h3 className="font-[var(--font-headline)] text-lg text-[var(--color-ink)]">
                       Performance Testing
                     </h3>
-                    <p className="text-sm text-[var(--color-ink-muted)]">Dr. Yu Tao</p>
                   </div>
                   <a 
                     href="./materials/567/SSW567-lecture.pdf"
