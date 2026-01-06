@@ -367,7 +367,7 @@ export default function Course567() {
               </div>
 
               {/* After Completion */}
-              <div className="mt-auto pt-4 p-3 bg-white border border-[var(--color-border)]">
+              <div className="mt-4 p-3 bg-white border border-[var(--color-border)]">
                 <p className="text-xs font-semibold text-[var(--color-ink)] mb-1">After Completion</p>
                 <p className="text-xs text-[var(--color-ink-muted)]">
                   Take the exit survey to share your feedback and help improve future course materials.
