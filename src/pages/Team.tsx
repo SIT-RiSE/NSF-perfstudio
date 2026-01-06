@@ -53,7 +53,7 @@ const researchAssistants = [
     role: 'Graduate Research Assistant',
     affiliation: 'Stevens Institute of Technology',
     department: 'Software Engineering',
-    bio: 'Software engineering researcher who defended his Ph.D. at Stevens. Research focuses on unit testing and developer automation, including the Arrange–Act–Assert structure in test suites. Published in IEEE TSE, and developed SAG (Setup AGent), an LLM-based agent for Java project configuration (ICSE 2026 NIER).',
+    bio: 'Software engineering researcher focusing on unit testing and developer automation, including the Arrange–Act–Assert structure in test suites. Published in IEEE TSE, and developed SAG (Setup AGent), an LLM-based agent for Java project configuration (ICSE 2026 NIER).',
     initials: 'CW',
   },
   {
