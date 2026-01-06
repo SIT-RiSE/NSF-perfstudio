@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const principalInvestigators = [
   {
-    name: 'Dr. Lu Xiao',
+    name: 'Lu Xiao, Ph.D.',
     role: 'Principal Investigator',
     affiliation: 'Stevens Institute of Technology',
     department: 'School of Systems and Enterprises',
@@ -11,16 +11,16 @@ const principalInvestigators = [
     initials: 'LX',
   },
   {
-    name: 'Dr. Eman Alomar',
-    role: 'Co-PI',
+    name: 'Eman Alomar, Ph.D.',
+    role: 'Co-Principal Investigator',
     affiliation: 'Stevens Institute of Technology',
     department: 'School of Systems and Enterprises',
     bio: 'Assistant Professor whose research focuses on software quality, refactoring, maintenance and evolution, and technical debt. Received Best Paper Awards at IWoR 2019, MSR 2022, MSR 2024, SIGCSE 2024, and ICPC 2025, and the Jess H. Davis Memorial Award for Research Excellence at Stevens 2024.',
     initials: 'EA',
   },
   {
-    name: 'Dr. Ye Yang',
-    role: 'Original Project PI',
+    name: 'Ye Yang, Ph.D.',
+    role: 'Original Project Principal Investigator',
     affiliation: 'Amazon (formerly Stevens Institute of Technology)',
     department: 'Software Development',
     bio: 'Software Development Manager at Amazon. Previously Associate Professor at Stevens and ISCAS. Her research spans empirical software engineering and data-driven decision making, including software cost estimation, defect prediction, and human-centered software engineering. Received ACM Distinguished Paper Awards at ICSE 2019 and ICSE 2020.',
@@ -30,7 +30,7 @@ const principalInvestigators = [
 
 const seniorPersonnel = [
   {
-    name: 'Dr. André B. Bondi',
+    name: 'André B. Bondi, Ph.D.',
     role: 'Senior Personnel, Consultant',
     affiliation: 'Stevens Institute of Technology',
     department: 'Adjunct Professor of Software Engineering',
@@ -38,18 +38,18 @@ const seniorPersonnel = [
     initials: 'AB',
   },
   {
-    name: 'Dr. Yu Tao',
+    name: 'Yu Tao, Ph.D.',
     role: 'External Evaluator',
     affiliation: 'Stevens Institute of Technology',
     department: 'School of Humanities, Arts and Social Sciences',
-    bio: 'Associate Professor focusing on STEM education and workforce outcomes, examining group differences due to gender, race/ethnicity, and immigration status. Co-PI of NSF grants on STEM education and online privacy. Co-edited volume on African Americans in engineering (Johns Hopkins University Press, 2015).',
+    bio: 'Associate Professor focusing on STEM education and workforce outcomes, examining group differences due to gender, race/ethnicity, and immigration status. Co-Principal Investigator of NSF grants on STEM education and online privacy. Co-edited volume on African Americans in engineering (Johns Hopkins University Press, 2015).',
     initials: 'YT',
   },
 ]
 
 const researchAssistants = [
   {
-    name: 'Dr. Chenhao Wei',
+    name: 'Chenhao Wei, Ph.D.',
     role: 'Graduate Research Assistant',
     affiliation: 'Stevens Institute of Technology',
     department: 'Software Engineering',
@@ -57,7 +57,7 @@ const researchAssistants = [
     initials: 'CW',
   },
   {
-    name: 'Dr. Gengwu Zhao',
+    name: 'Gengwu Zhao, Ph.D.',
     role: 'Graduate Research Assistant',
     affiliation: 'Stevens Institute of Technology',
     department: 'Software Engineering',
@@ -252,7 +252,7 @@ export default function Team() {
           </p>
           <div className="border border-[var(--color-border)] bg-white p-4 inline-block">
             <div className="text-sm">
-              <p className="text-[var(--color-ink)]"><strong>Dr. Lu Xiao</strong></p>
+              <p className="text-[var(--color-ink)]"><strong>Lu Xiao, Ph.D.</strong></p>
               <p className="text-[var(--color-ink-muted)]">Stevens Institute of Technology</p>
               <a 
                 href="mailto:lxiao6@stevens.edu"
