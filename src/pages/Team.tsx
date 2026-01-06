@@ -41,8 +41,8 @@ const seniorPersonnel = [
     name: 'Dr. Yu Tao',
     role: 'External Evaluator',
     affiliation: 'Stevens Institute of Technology',
-    department: 'School of Systems and Enterprises',
-    bio: 'Researcher focusing on STEM education and workforce outcomes, examining group differences due to gender, race/ethnicity, and immigration status. Co-PI of NSF grants on STEM education and online privacy. Co-edited volume on African Americans in engineering (Johns Hopkins University Press, 2015).',
+    department: 'School of Humanities, Arts and Social Sciences',
+    bio: 'Associate Professor focusing on STEM education and workforce outcomes, examining group differences due to gender, race/ethnicity, and immigration status. Co-PI of NSF grants on STEM education and online privacy. Co-edited volume on African Americans in engineering (Johns Hopkins University Press, 2015).',
     initials: 'YT',
   },
 ]
