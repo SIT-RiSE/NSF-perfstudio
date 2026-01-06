@@ -280,41 +280,43 @@ export default function Course567() {
               </div>
             </div>
 
-            <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-6">
-              <h3 className="font-semibold text-[var(--color-ink)] mb-4">What You'll Learn</h3>
-              <ul className="space-y-3 text-sm text-[var(--color-ink-muted)]">
-                <li className="flex items-start gap-2">
-                  <span className="text-[var(--color-accent-warm)]">•</span>
-                  Requirements analysis and specification
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[var(--color-accent-warm)]">•</span>
-                  Unit testing with mocking
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[var(--color-accent-warm)]">•</span>
-                  Coverage and mutation testing
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[var(--color-accent-warm)]">•</span>
-                  Performance benchmarking and profiling
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[var(--color-accent-warm)]">•</span>
-                  Test planning documentation
-                </li>
-              </ul>
+            <div className="flex flex-col">
+              <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-6 flex-1">
+                <h3 className="font-semibold text-[var(--color-ink)] mb-4">What You'll Learn</h3>
+                <ul className="space-y-3 text-sm text-[var(--color-ink-muted)]">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-warm)]">•</span>
+                    Requirements analysis and specification
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-warm)]">•</span>
+                    Unit testing with mocking
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-warm)]">•</span>
+                    Coverage and mutation testing
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-warm)]">•</span>
+                    Performance benchmarking and profiling
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-warm)]">•</span>
+                    Test planning documentation
+                  </li>
+                </ul>
 
-              <div className="mt-6 pt-4 border-t border-[var(--color-border)]">
-                <h4 className="font-medium text-[var(--color-ink)] text-sm mb-2">Tools Used</h4>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-2 py-1 rounded">Python</span>
-                  <span className="text-xs bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-2 py-1 rounded">MutPy</span>
-                  <span className="text-xs bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-2 py-1 rounded">Coverage.py</span>
+                <div className="mt-6 pt-4 border-t border-[var(--color-border)]">
+                  <h4 className="font-medium text-[var(--color-ink)] text-sm mb-2">Tools Used</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="text-xs bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-2 py-1 rounded">Python</span>
+                    <span className="text-xs bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-2 py-1 rounded">MutPy</span>
+                    <span className="text-xs bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-2 py-1 rounded">Coverage.py</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="mt-auto pt-4 p-3 bg-white border border-[var(--color-border)]">
+              <div className="mt-4 p-3 bg-white border border-[var(--color-border)]">
                 <p className="text-xs font-semibold text-[var(--color-ink)] mb-1">After Completion</p>
                 <p className="text-xs text-[var(--color-ink-muted)]">
                   Take the exit survey to share your feedback and help improve future course materials.

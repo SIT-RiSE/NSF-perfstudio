@@ -303,28 +303,30 @@ export default function Course345() {
               </div>
             </div>
 
-            <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-6">
-              <h3 className="font-semibold text-[var(--color-ink)] mb-4">Deliverables</h3>
-              <ul className="space-y-3 text-sm text-[var(--color-ink-muted)]">
-                <li className="flex items-start gap-2">
-                  <span className="text-[var(--color-accent-teal)]">•</span>
-                  Test setup documentation
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[var(--color-accent-teal)]">•</span>
-                  Visualized metrics (response times, error rates, throughput graphs)
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[var(--color-accent-teal)]">•</span>
-                  Bottleneck analysis (when/where system degrades)
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[var(--color-accent-teal)]">•</span>
-                  Optimization recommendations based on findings
-                </li>
-              </ul>
+            <div className="flex flex-col">
+              <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-6 flex-1">
+                <h3 className="font-semibold text-[var(--color-ink)] mb-4">Deliverables</h3>
+                <ul className="space-y-3 text-sm text-[var(--color-ink-muted)]">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-teal)]">•</span>
+                    Test setup documentation
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-teal)]">•</span>
+                    Visualized metrics (response times, error rates, throughput graphs)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-teal)]">•</span>
+                    Bottleneck analysis (when/where system degrades)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-teal)]">•</span>
+                    Optimization recommendations based on findings
+                  </li>
+                </ul>
+              </div>
 
-              <div className="mt-auto pt-4 p-3 bg-white border border-[var(--color-border)]">
+              <div className="mt-4 p-3 bg-white border border-[var(--color-border)]">
                 <p className="text-xs font-semibold text-[var(--color-ink)] mb-1">After Completion</p>
                 <p className="text-xs text-[var(--color-ink-muted)]">
                   Take the exit survey to share your feedback and help improve future course materials.
