@@ -229,9 +229,15 @@ export default function Course567() {
             <div className="flex items-center gap-6 text-sm text-[var(--color-ink-muted)]">
               <span className="flex items-center gap-1.5">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                ~4-6 hours
+                Multi-week project
+              </span>
+              <span className="flex items-center gap-1.5">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                Group project
               </span>
               <span className="flex items-center gap-1.5">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -252,21 +258,21 @@ export default function Course567() {
                   <span className="w-6 h-6 border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">0</span>
                   <div>
                     <p className="font-medium text-[var(--color-ink)] text-sm">Kickoff & Planning</p>
-                    <p className="text-xs text-[var(--color-ink-muted)]">Project plan + Gantt Chart</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Project plan + Gantt Chart showing task dependencies</p>
                   </div>
                 </li>
                 <li className="flex gap-3">
                   <span className="w-6 h-6 border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
                   <div>
                     <p className="font-medium text-[var(--color-ink)] text-sm">Requirement Testing</p>
-                    <p className="text-xs text-[var(--color-ink-muted)]">Identify ambiguities, rewrite specifications</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Identify ambiguities, clarify specifications with assumptions</p>
                   </div>
                 </li>
                 <li className="flex gap-3">
                   <span className="w-6 h-6 border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
                   <div>
                     <p className="font-medium text-[var(--color-ink)] text-sm">Unit Testing</p>
-                    <p className="text-xs text-[var(--color-ink-muted)]">Implement MRTD functions + test cases (&gt;80% coverage) + MutPy</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Implement MRTD functions, write tests (&gt;80% coverage), run MutPy</p>
                   </div>
                 </li>
                 <li className="flex gap-3">
@@ -280,7 +286,7 @@ export default function Course567() {
                   <span className="w-6 h-6 border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>
                   <div>
                     <p className="font-medium text-[var(--color-ink)] text-sm">Test Planning</p>
-                    <p className="text-xs text-[var(--color-ink-muted)]">Complete test plan document (strategy, scope, approach, tools, schedule)</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Complete test plan (strategy, scope, approach, schedule)</p>
                   </div>
                 </li>
               </ol>
@@ -291,23 +297,23 @@ export default function Course567() {
                 <ul className="space-y-2 text-xs text-[var(--color-ink-light)]">
                   <li className="flex items-start gap-2">
                     <span className="text-[var(--color-accent-warm)]">✓</span>
-                    <span>Requirements analysis and specification</span>
+                    <span>Requirements analysis and specification refinement</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[var(--color-accent-warm)]">✓</span>
-                    <span>Unit testing with mocking techniques</span>
+                    <span>Unit testing with mocking (hardware/database)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[var(--color-accent-warm)]">✓</span>
-                    <span>Coverage and mutation testing</span>
+                    <span>Code coverage and mutation testing techniques</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[var(--color-accent-warm)]">✓</span>
-                    <span>Performance benchmarking and profiling</span>
+                    <span>Performance benchmarking with varying data sizes</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[var(--color-accent-warm)]">✓</span>
-                    <span>Test planning documentation</span>
+                    <span>Professional test planning documentation</span>
                   </li>
                 </ul>
               </div>
@@ -316,7 +322,8 @@ export default function Course567() {
               <div className="bg-[var(--color-highlight)] border border-[var(--color-accent-warm)]/30 p-4">
                 <p className="text-xs font-semibold text-[var(--color-accent-warm)] uppercase tracking-wide mb-2">Student Role</p>
                 <p className="text-sm text-[var(--color-ink)]">
-                  Act as a <strong>QA engineer</strong> responsible for the complete testing lifecycle of a travel document processing system.
+                  Act as a <strong>QA engineer</strong> responsible for the complete testing lifecycle of a 
+                  Machine-Readable Travel Document (MRTD) processing system.
                 </p>
               </div>
             </div>
@@ -324,45 +331,54 @@ export default function Course567() {
             {/* Right: Tools & Deliverables */}
             <div className="flex flex-col">
               <h3 className="font-semibold text-[var(--color-ink)] mb-4">Tools & Deliverables</h3>
-              <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-4 flex-1">
+              <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-4">
                 <div className="mb-4">
                   <p className="text-xs font-semibold text-[var(--color-ink-muted)] uppercase tracking-wide mb-2">Tools Used</p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="text-xs bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-2 py-1 rounded">Python</span>
+                    <span className="text-xs bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-2 py-1 rounded">Python 3.7+</span>
                     <span className="text-xs bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-2 py-1 rounded">MutPy</span>
                     <span className="text-xs bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-2 py-1 rounded">Coverage.py</span>
+                    <span className="text-xs bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-2 py-1 rounded">GitHub</span>
                   </div>
                 </div>
                 
                 <p className="text-xs text-[var(--color-ink-muted)] mb-3">
-                  Final deliverables include:
+                  Final deliverables for each part:
                 </p>
                 <ol className="space-y-2.5 text-xs">
                   <li className="flex gap-2">
-                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">1.</span>
-                    <span className="text-[var(--color-ink)]">Project plan with Gantt chart <span className="text-[var(--color-ink-muted)]">(timeline, milestones)</span></span>
+                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">P0.</span>
+                    <span className="text-[var(--color-ink)]">Gantt chart <span className="text-[var(--color-ink-muted)]">(initial + final with actual completion)</span></span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">2.</span>
-                    <span className="text-[var(--color-ink)]">Requirements analysis document <span className="text-[var(--color-ink-muted)]">(ambiguities, rewrites)</span></span>
+                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">P1.</span>
+                    <span className="text-[var(--color-ink)]">PDF report <span className="text-[var(--color-ink-muted)]">(ambiguities + clarifications per spec)</span></span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">3.</span>
-                    <span className="text-[var(--color-ink)]">Unit test suite <span className="text-[var(--color-ink-muted)]">(&gt;80% coverage + mutation score)</span></span>
+                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">P2.</span>
+                    <span className="text-[var(--color-ink)]">Code repo <span className="text-[var(--color-ink-muted)]">(MRTD.py, MRTDtest.py, coverage &gt;80%)</span></span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">4.</span>
-                    <span className="text-[var(--color-ink)]">Performance test results <span className="text-[var(--color-ink-muted)]">(charts, analysis)</span></span>
+                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">P3.</span>
+                    <span className="text-[var(--color-ink)]">Performance report <span className="text-[var(--color-ink-muted)]">(charts, CSV data, analysis)</span></span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">5.</span>
-                    <span className="text-[var(--color-ink)]">Test plan document <span className="text-[var(--color-ink-muted)]">(strategy, scope, schedule)</span></span>
+                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">P4.</span>
+                    <span className="text-[var(--color-ink)]">Test plan <span className="text-[var(--color-ink-muted)]">(3-5 pages: strategy, scope, schedule)</span></span>
                   </li>
                 </ol>
-                <div className="mt-4 pt-3 border-t border-[var(--color-border)]">
-                  <p className="text-xs text-[var(--color-ink-subtle)]">
-                    💡 This is a comprehensive project—allocate time for each part and maintain clear documentation.
-                  </p>
+              </div>
+
+              {/* Project Context */}
+              <div className="mt-4 bg-white border border-[var(--color-border)] p-4">
+                <p className="text-xs font-semibold text-[var(--color-ink)] uppercase tracking-wide mb-2">Project Context</p>
+                <p className="text-xs text-[var(--color-ink-muted)] mb-3">
+                  Machine-Readable Travel Documents (MRTD) contain two OCR lines with passport information 
+                  and check digits. Your system will decode, validate, and encode these records.
+                </p>
+                <div className="bg-[var(--color-paper)] p-2 rounded font-mono text-[10px] text-[var(--color-ink-muted)]">
+                  <div>P&lt;UTOERIKSSON&lt;&lt;ANNA&lt;MARIA&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</div>
+                  <div>L898902C36UTO7408122F1204159ZE184226B&lt;&lt;&lt;1</div>
                 </div>
               </div>
 
