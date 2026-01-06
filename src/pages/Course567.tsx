@@ -35,7 +35,7 @@ export default function Course567() {
                 </span>
               </div>
               <h1 className="font-[var(--font-headline)] text-3xl md:text-4xl text-[var(--color-ink)] mb-4">
-                Performance & Reliability Testing
+                Performance Testing
               </h1>
               <p className="text-[var(--color-ink-light)] max-w-2xl">
                 This module covers <strong>Unit 5</strong> of the PerfStudio curriculum, teaching 
@@ -85,7 +85,7 @@ export default function Course567() {
                   <div>
                     <p className="text-xs text-[var(--color-accent-warm)] font-semibold uppercase tracking-wider mb-1">Lecture</p>
                     <h3 className="font-[var(--font-headline)] text-lg text-[var(--color-ink)]">
-                      Performance & Reliability Testing
+                      Performance Testing
                     </h3>
                     <p className="text-sm text-[var(--color-ink-muted)]">Dr. Yu Tao</p>
                   </div>

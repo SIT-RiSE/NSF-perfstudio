@@ -35,7 +35,7 @@ export default function Course315() {
                 </span>
               </div>
               <h1 className="font-[var(--font-headline)] text-3xl md:text-4xl text-[var(--color-ink)] mb-4">
-                Software Performance for OO Design
+                Software Performance Engineering Basics with OO Design
               </h1>
               <p className="text-[var(--color-ink-light)] max-w-2xl">
                 This module covers <strong>Unit 1</strong> of the PerfStudio curriculum, introducing 
@@ -87,7 +87,7 @@ export default function Course315() {
                   <div>
                     <p className="text-xs text-[var(--color-accent-purple)] font-semibold uppercase tracking-wider mb-1">Lecture</p>
                     <h3 className="font-[var(--font-headline)] text-lg text-[var(--color-ink)]">
-                      Software Performance for OO Design
+                      Software Performance Engineering Basics with OO Design
                     </h3>
                     <p className="text-sm text-[var(--color-ink-muted)]">Dr. Eman Alomar</p>
                   </div>
