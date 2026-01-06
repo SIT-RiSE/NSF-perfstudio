@@ -30,7 +30,7 @@ const courses = [
   {
     id: '533',
     code: 'SSW 533',
-    title: 'Software Estimation & Measurement',
+    title: 'Software Metrics and Estimation',
     year: 'Senior • Fall',
     unit: 'Unit 4: Performance Data Collection',
     topics: 'Basic statistics, data analytics, hypothesis testing',

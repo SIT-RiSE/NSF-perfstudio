@@ -109,7 +109,7 @@ export default function Course533() {
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <p className="font-[var(--font-mono)] text-sm text-[var(--color-accent-primary)]">
-                  SSW 533 — Data Collection & Management
+                  SSW 533 — Software Metrics and Estimation
                 </p>
                 <span className="text-xs bg-[var(--color-accent-teal)]/10 text-[var(--color-accent-teal)] px-2 py-0.5 rounded">
                   SPE Unit 4
