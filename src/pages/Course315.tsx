@@ -240,78 +240,126 @@ export default function Course315() {
       {/* PBL Exercise */}
       <section id="exercise" className="py-12">
         <div className="container-wide">
-          <div className="flex items-center gap-3 mb-6">
-            <p className="text-xs text-[var(--color-accent-purple)] font-semibold uppercase tracking-wider">Problem-Based Learning</p>
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+            <div>
+              <p className="section-label mb-2">Problem-Based Learning (PBL)</p>
+              <h2 className="font-[var(--font-headline)] text-xl text-[var(--color-ink)]">
+                DWT Pharmacy Vaccination System
+              </h2>
+            </div>
+            <div className="flex items-center gap-6 text-sm text-[var(--color-ink-muted)]">
+              <span className="flex items-center gap-1.5">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                ~2-3 hours
+              </span>
+              <span className="flex items-center gap-1.5">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                3 tasks
+              </span>
+            </div>
           </div>
-          <h2 className="font-[var(--font-headline)] text-2xl text-[var(--color-ink)] mb-2">
-            DWT Pharmacy Vaccination System
-          </h2>
-          <p className="text-[var(--color-ink-muted)] mb-8 max-w-2xl">
-            Design and analyze the performance of an online vaccination reservation system for DWT (similar to CVS) pharmacy.
-          </p>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div className="bg-white border border-[var(--color-border)] p-6">
-                <h3 className="font-semibold text-[var(--color-ink)] mb-4">Task Overview</h3>
-                <ol className="space-y-4 text-sm">
-                  <li className="flex gap-3">
-                    <span className="w-6 h-6 rounded-full border-2 border-[var(--color-accent-purple)] text-[var(--color-accent-purple)] flex items-center justify-center text-xs font-semibold flex-shrink-0">1</span>
-                    <div>
-                      <p className="font-medium text-[var(--color-ink)]">Describe SPE Process</p>
-                      <p className="text-[var(--color-ink-muted)]">Based on system requirements (without model-based evaluation)</p>
-                    </div>
+          {/* Two Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            {/* Left: Task Overview */}
+            <div className="flex flex-col">
+              <h3 className="font-semibold text-[var(--color-ink)] mb-4">Task Overview</h3>
+              <ol className="space-y-4 mb-6">
+                <li className="flex gap-3">
+                  <span className="w-6 h-6 border-2 border-[var(--color-accent-purple)] text-[var(--color-accent-purple)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
+                  <div>
+                    <p className="font-medium text-[var(--color-ink)] text-sm">Describe SPE Process</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Based on system requirements (without model-based evaluation)</p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span className="w-6 h-6 border-2 border-[var(--color-accent-purple)] text-[var(--color-accent-purple)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
+                  <div>
+                    <p className="font-medium text-[var(--color-ink)] text-sm">Compare Java I/O APIs</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Using 10M patient records (CSV), measure processing time and resource utilization</p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span className="w-6 h-6 border-2 border-[var(--color-accent-purple)] text-[var(--color-accent-purple)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
+                  <div>
+                    <p className="font-medium text-[var(--color-ink)] text-sm">Compare Inheritance vs Composition</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Implement both approaches, track execution time, draw observation diagrams</p>
+                  </div>
+                </li>
+              </ol>
+
+              {/* What You'll Learn */}
+              <div className="mb-6">
+                <h4 className="text-xs font-semibold text-[var(--color-ink-muted)] uppercase tracking-wide mb-3">What You'll Learn</h4>
+                <ul className="space-y-2 text-xs text-[var(--color-ink-light)]">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-purple)]">✓</span>
+                    <span>How to apply SPE process to a real system design</span>
                   </li>
-                  <li className="flex gap-3">
-                    <span className="w-6 h-6 rounded-full border-2 border-[var(--color-accent-purple)] text-[var(--color-accent-purple)] flex items-center justify-center text-xs font-semibold flex-shrink-0">2</span>
-                    <div>
-                      <p className="font-medium text-[var(--color-ink)]">Compare Java I/O APIs</p>
-                      <p className="text-[var(--color-ink-muted)]">Using 10M patient records (CSV), measure processing time and resource utilization</p>
-                    </div>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-purple)]">✓</span>
+                    <span>Measuring and comparing Java I/O API performance</span>
                   </li>
-                  <li className="flex gap-3">
-                    <span className="w-6 h-6 rounded-full border-2 border-[var(--color-accent-purple)] text-[var(--color-accent-purple)] flex items-center justify-center text-xs font-semibold flex-shrink-0">3</span>
-                    <div>
-                      <p className="font-medium text-[var(--color-ink)]">Compare Inheritance vs Composition</p>
-                      <p className="text-[var(--color-ink-muted)]">Implement both approaches, track execution time, draw observation diagrams</p>
-                    </div>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-purple)]">✓</span>
+                    <span>Analyzing inheritance vs. composition trade-offs</span>
                   </li>
-                </ol>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-purple)]">✓</span>
+                    <span>Documenting performance observations with diagrams</span>
+                  </li>
+                </ul>
               </div>
 
-              <div className="bg-white border border-[var(--color-border)] p-6">
-                <h3 className="font-semibold text-[var(--color-ink)] mb-3">Student Role</h3>
-                <p className="text-sm text-[var(--color-ink-muted)]">
-                  Act as a software performance engineer evaluating design choices and I/O strategies 
+              {/* Student Role */}
+              <div className="bg-[var(--color-highlight)] border border-[var(--color-accent-purple)]/30 p-4">
+                <p className="text-xs font-semibold text-[var(--color-accent-purple)] uppercase tracking-wide mb-2">Student Role</p>
+                <p className="text-sm text-[var(--color-ink)]">
+                  Act as a <strong>software performance engineer</strong> evaluating design choices and I/O strategies 
                   to optimize the vaccination reservation system's performance.
                 </p>
               </div>
             </div>
 
+            {/* Right: Deliverables */}
             <div className="flex flex-col">
-              <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-6 flex-1">
-                <h3 className="font-semibold text-[var(--color-ink)] mb-4">What You'll Learn</h3>
-                <ul className="space-y-3 text-sm text-[var(--color-ink-muted)]">
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-accent-purple)]">•</span>
-                    How to apply SPE process to a real system design
+              <h3 className="font-semibold text-[var(--color-ink)] mb-4">Deliverables</h3>
+              <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-4 flex-1">
+                <p className="text-xs text-[var(--color-ink-muted)] mb-3">
+                  Submit your analysis including:
+                </p>
+                <ol className="space-y-2.5 text-xs">
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-purple)] font-mono font-bold">1.</span>
+                    <span className="text-[var(--color-ink)]">SPE process description <span className="text-[var(--color-ink-muted)]">(based on system requirements)</span></span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-accent-purple)]">•</span>
-                    Measuring and comparing Java I/O API performance
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-purple)] font-mono font-bold">2.</span>
+                    <span className="text-[var(--color-ink)]">I/O API comparison results <span className="text-[var(--color-ink-muted)]">(timing, resource data)</span></span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-accent-purple)]">•</span>
-                    Analyzing inheritance vs. composition trade-offs
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-purple)] font-mono font-bold">3.</span>
+                    <span className="text-[var(--color-ink)]">Inheritance vs. composition analysis <span className="text-[var(--color-ink-muted)]">(code + metrics)</span></span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-accent-purple)]">•</span>
-                    Documenting performance observations with diagrams
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-purple)] font-mono font-bold">4.</span>
+                    <span className="text-[var(--color-ink)]">Observation diagrams <span className="text-[var(--color-ink-muted)]">(performance visualizations)</span></span>
                   </li>
-                </ul>
+                </ol>
+                <div className="mt-4 pt-3 border-t border-[var(--color-border)]">
+                  <p className="text-xs text-[var(--color-ink-subtle)]">
+                    💡 Focus on clear documentation and measurable performance comparisons.
+                  </p>
+                </div>
               </div>
 
-              <div className="mt-4 p-3 bg-white border border-[var(--color-border)]">
+              {/* After Completion */}
+              <div className="mt-auto pt-4 p-3 bg-white border border-[var(--color-border)]">
                 <p className="text-xs font-semibold text-[var(--color-ink)] mb-1">After Completion</p>
                 <p className="text-xs text-[var(--color-ink-muted)]">
                   Submit your analysis and take the exit survey to provide feedback on the learning experience.

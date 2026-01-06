@@ -218,105 +218,156 @@ export default function Course567() {
       {/* PBL Exercise */}
       <section id="exercise" className="py-12">
         <div className="container-wide">
-          <div className="flex items-center gap-3 mb-6">
-            <p className="text-xs text-[var(--color-accent-warm)] font-semibold uppercase tracking-wider">Problem-Based Learning</p>
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+            <div>
+              <p className="section-label mb-2">Problem-Based Learning (PBL)</p>
+              <h2 className="font-[var(--font-headline)] text-xl text-[var(--color-ink)]">
+                MRTD System Testing Project
+              </h2>
+            </div>
+            <div className="flex items-center gap-6 text-sm text-[var(--color-ink-muted)]">
+              <span className="flex items-center gap-1.5">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                ~4-6 hours
+              </span>
+              <span className="flex items-center gap-1.5">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                5 parts
+              </span>
+            </div>
           </div>
-          <h2 className="font-[var(--font-headline)] text-2xl text-[var(--color-ink)] mb-2">
-            MRTD System Testing Project
-          </h2>
-          <p className="text-[var(--color-ink-muted)] mb-8 max-w-2xl">
-            Comprehensive testing of a Machine-Readable Travel Document (MRTD) System covering requirements, 
-            unit testing, performance testing, and test planning.
-          </p>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div className="bg-white border border-[var(--color-border)] p-6">
-                <h3 className="font-semibold text-[var(--color-ink)] mb-4">Project Parts</h3>
-                <ol className="space-y-4 text-sm">
-                  <li className="flex gap-3">
-                    <span className="w-6 h-6 rounded-full border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] flex items-center justify-center text-xs font-semibold flex-shrink-0">0</span>
-                    <div>
-                      <p className="font-medium text-[var(--color-ink)]">Kickoff & Planning</p>
-                      <p className="text-[var(--color-ink-muted)]">Project plan + Gantt Chart</p>
-                    </div>
+          {/* Two Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            {/* Left: Task Overview */}
+            <div className="flex flex-col">
+              <h3 className="font-semibold text-[var(--color-ink)] mb-4">Project Parts</h3>
+              <ol className="space-y-4 mb-6">
+                <li className="flex gap-3">
+                  <span className="w-6 h-6 border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">0</span>
+                  <div>
+                    <p className="font-medium text-[var(--color-ink)] text-sm">Kickoff & Planning</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Project plan + Gantt Chart</p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span className="w-6 h-6 border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
+                  <div>
+                    <p className="font-medium text-[var(--color-ink)] text-sm">Requirement Testing</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Identify ambiguities, rewrite specifications</p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span className="w-6 h-6 border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
+                  <div>
+                    <p className="font-medium text-[var(--color-ink)] text-sm">Unit Testing</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Implement MRTD functions + test cases (&gt;80% coverage) + MutPy</p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span className="w-6 h-6 border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
+                  <div>
+                    <p className="font-medium text-[var(--color-ink)] text-sm">Performance Testing</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Process 10,000 records, generate execution time charts</p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span className="w-6 h-6 border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>
+                  <div>
+                    <p className="font-medium text-[var(--color-ink)] text-sm">Test Planning</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Complete test plan document (strategy, scope, approach, tools, schedule)</p>
+                  </div>
+                </li>
+              </ol>
+
+              {/* What You'll Learn */}
+              <div className="mb-6">
+                <h4 className="text-xs font-semibold text-[var(--color-ink-muted)] uppercase tracking-wide mb-3">What You'll Learn</h4>
+                <ul className="space-y-2 text-xs text-[var(--color-ink-light)]">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-warm)]">✓</span>
+                    <span>Requirements analysis and specification</span>
                   </li>
-                  <li className="flex gap-3">
-                    <span className="w-6 h-6 rounded-full border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] flex items-center justify-center text-xs font-semibold flex-shrink-0">1</span>
-                    <div>
-                      <p className="font-medium text-[var(--color-ink)]">Requirement Testing</p>
-                      <p className="text-[var(--color-ink-muted)]">Identify ambiguities, rewrite specifications</p>
-                    </div>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-warm)]">✓</span>
+                    <span>Unit testing with mocking techniques</span>
                   </li>
-                  <li className="flex gap-3">
-                    <span className="w-6 h-6 rounded-full border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] flex items-center justify-center text-xs font-semibold flex-shrink-0">2</span>
-                    <div>
-                      <p className="font-medium text-[var(--color-ink)]">Unit Testing</p>
-                      <p className="text-[var(--color-ink-muted)]">Implement MRTD functions + test cases (&gt;80% coverage) + MutPy</p>
-                    </div>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-warm)]">✓</span>
+                    <span>Coverage and mutation testing</span>
                   </li>
-                  <li className="flex gap-3">
-                    <span className="w-6 h-6 rounded-full border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] flex items-center justify-center text-xs font-semibold flex-shrink-0">3</span>
-                    <div>
-                      <p className="font-medium text-[var(--color-ink)]">Performance Testing</p>
-                      <p className="text-[var(--color-ink-muted)]">Process 10,000 records, generate execution time charts</p>
-                    </div>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-warm)]">✓</span>
+                    <span>Performance benchmarking and profiling</span>
                   </li>
-                  <li className="flex gap-3">
-                    <span className="w-6 h-6 rounded-full border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] flex items-center justify-center text-xs font-semibold flex-shrink-0">4</span>
-                    <div>
-                      <p className="font-medium text-[var(--color-ink)]">Test Planning</p>
-                      <p className="text-[var(--color-ink-muted)]">Complete test plan document (strategy, scope, approach, tools, schedule)</p>
-                    </div>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-warm)]">✓</span>
+                    <span>Test planning documentation</span>
                   </li>
-                </ol>
+                </ul>
               </div>
 
-              <div className="bg-white border border-[var(--color-border)] p-6">
-                <h3 className="font-semibold text-[var(--color-ink)] mb-3">Student Role</h3>
-                <p className="text-sm text-[var(--color-ink-muted)]">
-                  Act as a QA engineer responsible for the complete testing lifecycle of a travel document processing system.
+              {/* Student Role */}
+              <div className="bg-[var(--color-highlight)] border border-[var(--color-accent-warm)]/30 p-4">
+                <p className="text-xs font-semibold text-[var(--color-accent-warm)] uppercase tracking-wide mb-2">Student Role</p>
+                <p className="text-sm text-[var(--color-ink)]">
+                  Act as a <strong>QA engineer</strong> responsible for the complete testing lifecycle of a travel document processing system.
                 </p>
               </div>
             </div>
 
+            {/* Right: Tools & Deliverables */}
             <div className="flex flex-col">
-              <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-6 flex-1">
-                <h3 className="font-semibold text-[var(--color-ink)] mb-4">What You'll Learn</h3>
-                <ul className="space-y-3 text-sm text-[var(--color-ink-muted)]">
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-accent-warm)]">•</span>
-                    Requirements analysis and specification
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-accent-warm)]">•</span>
-                    Unit testing with mocking
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-accent-warm)]">•</span>
-                    Coverage and mutation testing
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-accent-warm)]">•</span>
-                    Performance benchmarking and profiling
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-accent-warm)]">•</span>
-                    Test planning documentation
-                  </li>
-                </ul>
-
-                <div className="mt-6 pt-4 border-t border-[var(--color-border)]">
-                  <h4 className="font-medium text-[var(--color-ink)] text-sm mb-2">Tools Used</h4>
+              <h3 className="font-semibold text-[var(--color-ink)] mb-4">Tools & Deliverables</h3>
+              <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-4 flex-1">
+                <div className="mb-4">
+                  <p className="text-xs font-semibold text-[var(--color-ink-muted)] uppercase tracking-wide mb-2">Tools Used</p>
                   <div className="flex flex-wrap gap-2">
                     <span className="text-xs bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-2 py-1 rounded">Python</span>
                     <span className="text-xs bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-2 py-1 rounded">MutPy</span>
                     <span className="text-xs bg-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] px-2 py-1 rounded">Coverage.py</span>
                   </div>
                 </div>
+                
+                <p className="text-xs text-[var(--color-ink-muted)] mb-3">
+                  Final deliverables include:
+                </p>
+                <ol className="space-y-2.5 text-xs">
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">1.</span>
+                    <span className="text-[var(--color-ink)]">Project plan with Gantt chart <span className="text-[var(--color-ink-muted)]">(timeline, milestones)</span></span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">2.</span>
+                    <span className="text-[var(--color-ink)]">Requirements analysis document <span className="text-[var(--color-ink-muted)]">(ambiguities, rewrites)</span></span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">3.</span>
+                    <span className="text-[var(--color-ink)]">Unit test suite <span className="text-[var(--color-ink-muted)]">(&gt;80% coverage + mutation score)</span></span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">4.</span>
+                    <span className="text-[var(--color-ink)]">Performance test results <span className="text-[var(--color-ink-muted)]">(charts, analysis)</span></span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-warm)] font-mono font-bold">5.</span>
+                    <span className="text-[var(--color-ink)]">Test plan document <span className="text-[var(--color-ink-muted)]">(strategy, scope, schedule)</span></span>
+                  </li>
+                </ol>
+                <div className="mt-4 pt-3 border-t border-[var(--color-border)]">
+                  <p className="text-xs text-[var(--color-ink-subtle)]">
+                    💡 This is a comprehensive project—allocate time for each part and maintain clear documentation.
+                  </p>
+                </div>
               </div>
 
-              <div className="mt-4 p-3 bg-white border border-[var(--color-border)]">
+              {/* After Completion */}
+              <div className="mt-auto pt-4 p-3 bg-white border border-[var(--color-border)]">
                 <p className="text-xs font-semibold text-[var(--color-ink)] mb-1">After Completion</p>
                 <p className="text-xs text-[var(--color-ink-muted)]">
                   Take the exit survey to share your feedback and help improve future course materials.

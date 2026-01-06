@@ -248,85 +248,133 @@ export default function Course345() {
       {/* PBL Exercise */}
       <section id="exercise" className="py-12">
         <div className="container-wide">
-          <div className="flex items-center gap-3 mb-6">
-            <p className="text-xs text-[var(--color-accent-teal)] font-semibold uppercase tracking-wider">Problem-Based Learning</p>
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+            <div>
+              <p className="section-label mb-2">Problem-Based Learning (PBL)</p>
+              <h2 className="font-[var(--font-headline)] text-xl text-[var(--color-ink)]">
+                Stress Testing Simulation on eFish'n'Sea
+              </h2>
+            </div>
+            <div className="flex items-center gap-6 text-sm text-[var(--color-ink-muted)]">
+              <span className="flex items-center gap-1.5">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                ~2 hours
+              </span>
+              <span className="flex items-center gap-1.5">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                4 tasks
+              </span>
+            </div>
           </div>
-          <h2 className="font-[var(--font-headline)] text-2xl text-[var(--color-ink)] mb-2">
-            Stress Testing Simulation on eFish'n'Sea
-          </h2>
-          <p className="text-[var(--color-ink-muted)] mb-8 max-w-2xl">
-            Use Loadster to perform stress testing on the eFish'n'Sea game and analyze system behavior under varying loads.
-          </p>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div className="bg-white border border-[var(--color-border)] p-6">
-                <h3 className="font-semibold text-[var(--color-ink)] mb-4">Task Overview</h3>
-                <ol className="space-y-4 text-sm">
-                  <li className="flex gap-3">
-                    <span className="w-6 h-6 rounded-full border-2 border-[var(--color-accent-teal)] text-[var(--color-accent-teal)] flex items-center justify-center text-xs font-semibold flex-shrink-0">1</span>
-                    <div>
-                      <p className="font-medium text-[var(--color-ink)]">Set Up Loadster</p>
-                      <p className="text-[var(--color-ink-muted)]">Create account, configure environment (50 free fuels limit)</p>
-                    </div>
+          {/* Two Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            {/* Left: Task Overview */}
+            <div className="flex flex-col">
+              <h3 className="font-semibold text-[var(--color-ink)] mb-4">Task Overview</h3>
+              <ol className="space-y-4 mb-6">
+                <li className="flex gap-3">
+                  <span className="w-6 h-6 border-2 border-[var(--color-accent-teal)] text-[var(--color-accent-teal)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
+                  <div>
+                    <p className="font-medium text-[var(--color-ink)] text-sm">Set Up Loadster</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Create account, configure environment (50 free fuels limit)</p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span className="w-6 h-6 border-2 border-[var(--color-accent-teal)] text-[var(--color-accent-teal)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
+                  <div>
+                    <p className="font-medium text-[var(--color-ink)] text-sm">Design Stress Test</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Configure load levels: 10, 20, 50, 100 virtual users</p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span className="w-6 h-6 border-2 border-[var(--color-accent-teal)] text-[var(--color-accent-teal)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
+                  <div>
+                    <p className="font-medium text-[var(--color-ink)] text-sm">Execute Test</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Ramp Up → Peak Load → Ramp Down cycle</p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span className="w-6 h-6 border-2 border-[var(--color-accent-teal)] text-[var(--color-accent-teal)] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>
+                  <div>
+                    <p className="font-medium text-[var(--color-ink)] text-sm">Generate Report</p>
+                    <p className="text-xs text-[var(--color-ink-muted)]">Include graphs, analysis, optimization recommendations</p>
+                  </div>
+                </li>
+              </ol>
+
+              {/* What You'll Learn */}
+              <div className="mb-6">
+                <h4 className="text-xs font-semibold text-[var(--color-ink-muted)] uppercase tracking-wide mb-3">What You'll Learn</h4>
+                <ul className="space-y-2 text-xs text-[var(--color-ink-light)]">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-teal)]">✓</span>
+                    <span>Setting up and configuring load testing tools</span>
                   </li>
-                  <li className="flex gap-3">
-                    <span className="w-6 h-6 rounded-full border-2 border-[var(--color-accent-teal)] text-[var(--color-accent-teal)] flex items-center justify-center text-xs font-semibold flex-shrink-0">2</span>
-                    <div>
-                      <p className="font-medium text-[var(--color-ink)]">Design Stress Test</p>
-                      <p className="text-[var(--color-ink-muted)]">Configure load levels: 10, 20, 50, 100 virtual users</p>
-                    </div>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-teal)]">✓</span>
+                    <span>Designing stress test scenarios with varying loads</span>
                   </li>
-                  <li className="flex gap-3">
-                    <span className="w-6 h-6 rounded-full border-2 border-[var(--color-accent-teal)] text-[var(--color-accent-teal)] flex items-center justify-center text-xs font-semibold flex-shrink-0">3</span>
-                    <div>
-                      <p className="font-medium text-[var(--color-ink)]">Execute Test</p>
-                      <p className="text-[var(--color-ink-muted)]">Ramp Up → Peak Load → Ramp Down cycle</p>
-                    </div>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-teal)]">✓</span>
+                    <span>Analyzing performance metrics and identifying bottlenecks</span>
                   </li>
-                  <li className="flex gap-3">
-                    <span className="w-6 h-6 rounded-full border-2 border-[var(--color-accent-teal)] text-[var(--color-accent-teal)] flex items-center justify-center text-xs font-semibold flex-shrink-0">4</span>
-                    <div>
-                      <p className="font-medium text-[var(--color-ink)]">Generate Report</p>
-                      <p className="text-[var(--color-ink-muted)]">Include graphs, analysis, optimization recommendations</p>
-                    </div>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-teal)]">✓</span>
+                    <span>Formulating optimization recommendations</span>
                   </li>
-                </ol>
+                </ul>
               </div>
 
-              <div className="bg-white border border-[var(--color-border)] p-6">
-                <h3 className="font-semibold text-[var(--color-ink)] mb-3">Student Role</h3>
-                <p className="text-sm text-[var(--color-ink-muted)]">
-                  Act as a performance engineer designing and executing stress tests to identify bottlenecks 
+              {/* Student Role */}
+              <div className="bg-[var(--color-highlight)] border border-[var(--color-accent-teal)]/30 p-4">
+                <p className="text-xs font-semibold text-[var(--color-accent-teal)] uppercase tracking-wide mb-2">Student Role</p>
+                <p className="text-sm text-[var(--color-ink)]">
+                  Act as a <strong>performance engineer</strong> designing and executing stress tests to identify bottlenecks 
                   and recommend optimizations for a web-based game application.
                 </p>
               </div>
             </div>
 
+            {/* Right: Deliverables */}
             <div className="flex flex-col">
-              <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-6 flex-1">
-                <h3 className="font-semibold text-[var(--color-ink)] mb-4">Deliverables</h3>
-                <ul className="space-y-3 text-sm text-[var(--color-ink-muted)]">
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-accent-teal)]">•</span>
-                    Test setup documentation
+              <h3 className="font-semibold text-[var(--color-ink)] mb-4">Deliverables</h3>
+              <div className="bg-[var(--color-paper)] border border-[var(--color-border)] p-4 flex-1">
+                <p className="text-xs text-[var(--color-ink-muted)] mb-3">
+                  Your final report should include:
+                </p>
+                <ol className="space-y-2.5 text-xs">
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-teal)] font-mono font-bold">1.</span>
+                    <span className="text-[var(--color-ink)]">Test setup documentation <span className="text-[var(--color-ink-muted)]">(environment, configuration)</span></span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-accent-teal)]">•</span>
-                    Visualized metrics (response times, error rates, throughput graphs)
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-teal)] font-mono font-bold">2.</span>
+                    <span className="text-[var(--color-ink)]">Visualized metrics <span className="text-[var(--color-ink-muted)]">(response times, error rates, throughput)</span></span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-accent-teal)]">•</span>
-                    Bottleneck analysis (when/where system degrades)
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-teal)] font-mono font-bold">3.</span>
+                    <span className="text-[var(--color-ink)]">Bottleneck analysis <span className="text-[var(--color-ink-muted)]">(when/where system degrades)</span></span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[var(--color-accent-teal)]">•</span>
-                    Optimization recommendations based on findings
+                  <li className="flex gap-2">
+                    <span className="text-[var(--color-accent-teal)] font-mono font-bold">4.</span>
+                    <span className="text-[var(--color-ink)]">Optimization recommendations <span className="text-[var(--color-ink-muted)]">(based on findings)</span></span>
                   </li>
-                </ul>
+                </ol>
+                <div className="mt-4 pt-3 border-t border-[var(--color-border)]">
+                  <p className="text-xs text-[var(--color-ink-subtle)]">
+                    💡 Use Loadster's 50 free fuels wisely—plan your test scenarios before execution.
+                  </p>
+                </div>
               </div>
 
-              <div className="mt-4 p-3 bg-white border border-[var(--color-border)]">
+              {/* After Completion */}
+              <div className="mt-auto pt-4 p-3 bg-white border border-[var(--color-border)]">
                 <p className="text-xs font-semibold text-[var(--color-ink)] mb-1">After Completion</p>
                 <p className="text-xs text-[var(--color-ink-muted)]">
                   Take the exit survey to share your feedback and help improve future course materials.
