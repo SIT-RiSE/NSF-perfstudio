@@ -371,23 +371,20 @@ export default function Course345() {
               {/* Key Metrics */}
               <div className="mt-4 bg-white border border-[var(--color-border)] p-4">
                 <p className="text-xs font-semibold text-[var(--color-ink)] uppercase tracking-wide mb-3">Key Metrics to Measure</p>
-                <div className="grid grid-cols-3 gap-3 text-xs">
-                  <div className="text-center p-2 bg-[var(--color-paper)] rounded">
-                    <div className="text-[var(--color-accent-teal)] font-semibold mb-1">⏱️</div>
-                    <div className="text-[var(--color-ink)] font-medium">Page Load Time</div>
-                    <div className="text-[var(--color-ink-muted)] text-[10px]">per user load level</div>
-                  </div>
-                  <div className="text-center p-2 bg-[var(--color-paper)] rounded">
-                    <div className="text-[var(--color-accent-teal)] font-semibold mb-1">⚠️</div>
-                    <div className="text-[var(--color-ink)] font-medium">Error Rate</div>
-                    <div className="text-[var(--color-ink-muted)] text-[10px]">types & frequency</div>
-                  </div>
-                  <div className="text-center p-2 bg-[var(--color-paper)] rounded">
-                    <div className="text-[var(--color-accent-teal)] font-semibold mb-1">📊</div>
-                    <div className="text-[var(--color-ink)] font-medium">Stability</div>
-                    <div className="text-[var(--color-ink-muted)] text-[10px]">under peak load</div>
-                  </div>
-                </div>
+                <ul className="space-y-2 text-xs">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-teal)]">⏱️</span>
+                    <span className="text-[var(--color-ink-muted)]">Page Load Time (duration at different user loads)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-teal)]">⚠️</span>
+                    <span className="text-[var(--color-ink-muted)]">Error Rate (types and frequencies at higher loads)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent-teal)]">📊</span>
+                    <span className="text-[var(--color-ink-muted)]">System Stability (behavior under peak load conditions)</span>
+                  </li>
+                </ul>
                 <div className="mt-3 pt-3 border-t border-[var(--color-border)]">
                   <p className="text-xs text-[var(--color-ink-subtle)]">
                     💡 Loadster provides 50 free fuels—test only one game within eFish'nSea to stay within limits.
