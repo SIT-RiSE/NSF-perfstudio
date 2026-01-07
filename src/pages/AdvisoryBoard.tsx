@@ -40,7 +40,7 @@ const advisoryMembers = [
     name: 'Qi Wang',
     title: 'NPI Operations Program Manager',
     affiliation: 'Google',
-    bio: 'Graduate of University of Wisconsin–Madison. Holds PMP® credential from PMI and APICS CPIM certification from ASCM. Works at the interface of product development and operational execution, driving disciplined launch readiness and smoother transitions into production by aligning cross-functional stakeholders around quality, cost, and capacity considerations.',
+    bio: 'Has an interdisciplinary background spanning engineering, operations, and program management, having studied at Tsinghua University, Nanyang Technological University (Singapore), and MIT. Holds PMP and CPIM credentials. Works on cross-functional execution and operational readiness for product launches, bridging product development and supply chain/operations to deliver scalable outcomes.',
     expertise: 'Operations & Program Management',
   },
   {
