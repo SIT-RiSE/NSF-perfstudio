@@ -40,7 +40,7 @@ const advisoryMembers = [
     name: 'Qi Wang',
     title: 'NPI Operations Program Manager',
     affiliation: 'Google',
-    bio: 'Has an interdisciplinary background spanning engineering, operations, and program management, having studied at Tsinghua University, Nanyang Technological University (Singapore), and MIT. Holds PMP and CPIM credentials. Works on cross-functional execution and operational readiness for product launches, bridging product development and supply chain/operations to deliver scalable outcomes.',
+    bio: 'NPI (New Product Introduction) Operations Program Manager at Google with an interdisciplinary background spanning engineering, operations, and program management. Studied at Tsinghua University, Nanyang Technological University (Singapore), and MIT. Holds PMP and CPIM credentials. Works on cross-functional execution and operational readiness for product launches, bridging product development and supply chain/operations to deliver scalable outcomes.',
     expertise: 'Operations & Program Management',
   },
   {
