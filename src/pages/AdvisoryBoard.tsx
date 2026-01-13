@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 const advisoryMembers = [
   {
     name: 'Alexander Podelko',
-    title: 'Staff Performance Engineer',
-    affiliation: 'MongoDB & Director, Computer Measurement Group',
-    bio: 'His expertise in performance testing, architecting, and optimization of the MongoDB server contributes inputs for systematic considerations for performance-related topics.',
+    title: 'Senior Performance Engineer',
+    affiliation: 'AWS & Member, SPEC RG Steering Committee',
+    bio: 'His expertise in performance testing, architecting, and optimization contributes inputs for systematic considerations for performance-related topics.',
     expertise: 'Performance Testing & Optimization',
   },
   {
